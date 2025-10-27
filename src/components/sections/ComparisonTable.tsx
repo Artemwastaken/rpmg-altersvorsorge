@@ -1,0 +1,164 @@
+'use client'
+
+import React from 'react'
+import { motion } from 'framer-motion'
+import { Check, X, Info } from 'lucide-react'
+
+const ComparisonTable = () => {
+  const comparisonData = [
+    {
+      feature: 'Verfügbarkeit',
+      direct: 'Ab Betriebsgründung',
+      support: 'Nach 5 Jahren Betriebszugehörigkeit',
+    },
+    {
+      feature: 'Monatlicher Höchstbeitrag',
+      direct: '644 €',
+      support: '3.000 €',
+    },
+    {
+      feature: 'Jährlicher Höchstbeitrag',
+      direct: '7.728 €',
+      support: '36.000 €',
+    },
+    {
+      feature: 'Steuerliche Behandlung',
+      direct: 'Steuerfrei & sozialabgabenfrei',
+      support: 'Voll als Betriebsausgabe abzugsfähig',
+    },
+    {
+      feature: 'Versteuerung im Alter',
+      direct: 'Nachgelagerte Besteuerung',
+      support: 'Nachgelagerte Besteuerung',
+    },
+    {
+      feature: 'Kombinierbar',
+      direct: true,
+      support: true,
+    },
+    {
+      feature: 'Für Familienangehörige',
+      direct: true,
+      support: true,
+    },
+    {
+      feature: 'Insolvenzschutz',
+      direct: true,
+      support: true,
+    },
+  ]
+
+  return (
+    <section id="vergleich" className="section-padding bg-gray-50">
+      <div className="container">
+        {/* Section Header */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.6 }}
+          variants={{ hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
+          <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-6">
+            § 3 Nr. 63 EStG vs. <span className="gradient-text">§ 4d EStG</span>
+          </h2>
+          <p className="text-xl text-gray-600 leading-relaxed">
+            Beide Vorsorgewege bieten erhebliche Steuervorteile. Kombinieren Sie sie für
+            maximale Steuerersparnis von bis zu 100.000 € pro Jahr.
+          </p>
+        </motion.div>
+
+        {/* Comparison Table */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.4 }}
+          variants={{ hidden: { opacity: 0, y: 28 }, visible: { opacity: 1, y: 0 } }}
+          transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-5xl mx-auto"
+        >
+          <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+            {/* Table Header */}
+            <div className="grid grid-cols-3 bg-primary-600 text-white">
+              <div className="p-6">
+                <h3 className="font-bold text-lg text-white">Kriterium</h3>
+              </div>
+              <div className="p-6 bg-primary-700 border-l border-primary-500">
+                <h3 className="font-bold text-lg text-white">Direktversicherung</h3>
+                <p className="text-sm text-white/90 mt-1">§ 3 Nr. 63 EStG</p>
+              </div>
+              <div className="p-6 bg-primary-800 border-l border-primary-600">
+                <h3 className="font-bold text-lg text-white">Unterstützungskasse</h3>
+                <p className="text-sm text-white/90 mt-1">§ 4d EStG</p>
+              </div>
+            </div>
+
+            {/* Table Body */}
+            <div className="divide-y divide-gray-200">
+              {comparisonData.map((row, index) => (
+                <div
+                  key={index}
+                  className={`grid grid-cols-3 ${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}`}
+                >
+                  <div className="p-6">
+                    <p className="font-semibold text-gray-900">{row.feature}</p>
+                  </div>
+                  <div className="p-6 border-l border-gray-200">
+                    {typeof row.direct === 'boolean' ? (
+                      row.direct ? (
+                        <Check className="w-6 h-6 text-green-600" />
+                      ) : (
+                        <X className="w-6 h-6 text-red-400" />
+                      )
+                    ) : (
+                      <p className="text-gray-700">{row.direct}</p>
+                    )}
+                  </div>
+                  <div className="p-6 border-l border-gray-200">
+                    {typeof row.support === 'boolean' ? (
+                      row.support ? (
+                        <Check className="w-6 h-6 text-green-600" />
+                      ) : (
+                        <X className="w-6 h-6 text-red-400" />
+                      )
+                    ) : (
+                      <p className="text-gray-700">{row.support}</p>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Table Footer */}
+            <div className="bg-gradient-to-r from-primary-600 to-primary-700 p-6 text-white">
+              <p className="text-center font-semibold">
+                ✓ Beide Wege kombinierbar für maximale Steuerersparnis bis zu 100.000 € pro Jahr
+              </p>
+            </div>
+          </div>
+        </motion.div>
+
+
+        {/* Bottom CTA */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+          variants={{ hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } }}
+          transition={{ duration: 0.6, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mt-12"
+        >
+          <a
+            href="#rechner"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition-colors shadow-lg"
+          >
+            Jetzt Ihre Ersparnis berechnen
+          </a>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
+
+export default ComparisonTable
