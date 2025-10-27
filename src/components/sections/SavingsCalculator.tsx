@@ -8,6 +8,7 @@ import { cn } from '@/utils/cn'
 const SavingsCalculator = () => {
   const [monthlyAmount, setMonthlyAmount] = useState(1500)
   const [taxRate, setTaxRate] = useState(42)
+  const [years, setYears] = useState(25)
 
   const annualContribution = useMemo(() => monthlyAmount * 12, [monthlyAmount])
   const annualTaxSavings = useMemo(
@@ -17,19 +18,19 @@ const SavingsCalculator = () => {
 
   const futureValue = useMemo(() => {
     const monthlyReturn = 0.07 / 12
-    const months = 25 * 12
+    const months = years * 12
     return (
       monthlyAmount *
       ((Math.pow(1 + monthlyReturn, months) - 1) / monthlyReturn) *
       (1 + monthlyReturn)
     )
-  }, [monthlyAmount])
+  }, [monthlyAmount, years])
 
   const roiPercent = useMemo(() => {
     if (!annualContribution) return 0
-    const totalInvested = annualContribution * 25
+    const totalInvested = annualContribution * years
     return ((futureValue - totalInvested) / totalInvested) * 100
-  }, [annualContribution, futureValue])
+  }, [annualContribution, futureValue, years])
 
   const formatCurrency = (value: number) =>
     new Intl.NumberFormat('de-DE', {
@@ -45,9 +46,19 @@ const SavingsCalculator = () => {
     return Math.round(raw / 100) * 100
   }
 
+  const getSnappedYears = (raw: number) => {
+    return Math.round(raw / 1) * 1
+  }
+
   const tickMarks = [
     { value: 292, label: '292 €', description: 'SV-frei', accent: true },
     { value: 644, label: '644 €', description: 'Max. steuerfrei', accent: true }
+  ]
+
+  const yearTickMarks = [
+    { value: 10, label: 'Kurz', description: '10 Jahre' },
+    { value: 25, label: 'Standard', description: '25 Jahre' },
+    { value: 35, label: 'Lang', description: '35 Jahre' }
   ]
 
   const monthlyMv = useMotionValue(annualTaxSavings)
@@ -152,7 +163,7 @@ const SavingsCalculator = () => {
                         <span>50 €</span>
                         <span>3.000 €</span>
                       </div>
-                      <div className="relative w-full h-16 mt-4">
+                      <div className="relative w-full h-16 mt-2">
                         {tickMarks.map((tick, index) => {
                           const pct = (tick.value - 50) / (3000 - 50)
                           const left = `calc(${pct * 100}% + ${12 - pct * 24}px)`
@@ -172,6 +183,46 @@ const SavingsCalculator = () => {
                             </div>
                           )
                         })}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="space-y-3">
+                    <label className="flex items-center justify-between text-sm font-medium text-gray-700">
+                      <span>Laufzeit</span>
+                      <span className="font-semibold text-primary-700 text-lg">{years} Jahre</span>
+                    </label>
+                    <div className="relative pt-8">
+                      <input
+                        type="range"
+                        min={5}
+                        max={40}
+                        step={1}
+                        value={years}
+                        onChange={(e) => setYears(getSnappedYears(Number(e.target.value)))}
+                        className="w-full appearance-none h-2 rounded-full bg-primary-100 outline-none"
+                        style={{
+                          background: `linear-gradient(to right, #8B6A3C 0%, #CDAA6D ${((years - 5) / (40 - 5)) * 100}%, #E7DFD6 ${((years - 5) / (40 - 5)) * 100}%, #E7DFD6 100%)`
+                        }}
+                      />
+                      <motion.div
+                        key={years}
+                        initial={{ opacity: 0, y: 6 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute -top-11"
+                        style={{
+                          left: `calc(${((years - 5) / (40 - 5)) * 100}% + ${12 - ((years - 5) / (40 - 5)) * 24}px)`,
+                          transform: 'translateX(-50%)'
+                        }}
+                      >
+                        <div className="px-3 py-1 rounded-full bg-primary-600 text-white text-xs font-semibold shadow">
+                          {years} Jahre
+                        </div>
+                      </motion.div>
+                      <div className="flex justify-between text-xs text-gray-500 mt-3">
+                        <span>5 Jahre</span>
+                        <span>40 Jahre</span>
                       </div>
                     </div>
                   </div>
@@ -204,7 +255,7 @@ const SavingsCalculator = () => {
                     <div className="text-sm">
                       <p className="font-semibold">Hinweis</p>
                       <p className="opacity-80">
-                        Berechnung basiert auf 7 % Nettorendite und 25 Jahren Laufzeit. Individualisierung im Gespräch.
+                        Berechnung basiert auf 7 % Nettorendite. Individualisierung im Gespräch.
                       </p>
                     </div>
                   </div>
@@ -254,7 +305,7 @@ const SavingsCalculator = () => {
                         <TrendingUp className="w-6 h-6" />
                       </div>
                       <div>
-                        <p className="text-xs uppercase tracking-wider text-white/70">Vermögen nach 25 Jahren</p>
+                        <p className="text-xs uppercase tracking-wider text-white/70">Vermögen nach {years} Jahren</p>
                         <motion.p className="text-3xl font-bold" key={futureValue}>
                           {formattedFuture}
                         </motion.p>

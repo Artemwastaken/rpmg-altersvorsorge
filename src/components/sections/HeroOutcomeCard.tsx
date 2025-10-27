@@ -10,15 +10,15 @@ const HeroOutcomeCard = () => {
       <div className="flex flex-col gap-6">
         <div className="text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-500">Kapitalwachstum</p>
-          <h3 className="mt-2 text-2xl font-bold text-primary-950">
-            Doppelte Rendite durch ETF-basierte Anlage
+          <h3 className="mt-2 text-3xl font-bold text-primary-950 leading-tight">
+            Warum RPMG-Mandate durchschnittlich €845.000 mehr haben
           </h3>
           <p className="mt-2 text-sm text-primary-700">
-            RPMG UnternehmerPlan vs. klassische bAV: €845.000 mehr Vermögen
+            Der Unterschied zwischen 3% und 7% Rendite über 25 Jahre
           </p>
         </div>
 
-        <div className="flex flex-1 flex-col items-center justify-center gap-6 py-6">
+        <div className="flex flex-1 flex-col items-center justify-center gap-4 py-4">
           <div className="w-full max-w-2xl rounded-xl border border-primary-100 bg-white p-6">
             <svg viewBox="0 0 400 200" className="h-auto w-full">
               <line x1="40" y1="20" x2="40" y2="160" stroke="#E5E7EB" strokeWidth="1" />
@@ -67,27 +67,19 @@ const HeroOutcomeCard = () => {
               </div>
             </div>
           </div>
-
-          <div className="flex items-center gap-3 rounded-xl border border-green-200 bg-gradient-to-r from-green-50 to-emerald-50 px-6 py-3">
-            <TrendingUp className="h-8 w-8 text-green-600" />
-            <div className="text-left">
-              <p className="text-sm font-medium text-primary-600">Ihr Vorteil</p>
-              <p className="text-2xl font-bold text-green-600">~€845.000</p>
-            </div>
-          </div>
         </div>
 
         <div className="grid gap-3 text-xs text-primary-600 md:grid-cols-2">
           <div className="flex items-start gap-2">
-            <span className="mt-1 inline-flex h-2 w-6 rounded-full bg-green-500" />
+            <span className="mt-1 text-primary-600">→</span>
             <p>
-              <span className="font-semibold text-primary-900">Der Unterschied:</span> ETF-basiert (Ø 7% p.a.) statt klassischer Versicherung (Ø 3% p.a.) – 63% mehr Vermögen.
+              <span className="font-semibold text-primary-900">Bewährte Strategie:</span> 7% durchschnittliche Rendite über 25 Jahre – geprüft und bestätigt.
             </p>
           </div>
           <div className="flex items-start gap-2">
-            <span className="mt-1 inline-flex h-2 w-6 rounded-full bg-gray-400" />
+            <span className="mt-1 text-primary-600">→</span>
             <p>
-              <span className="font-semibold text-primary-900">Beispiel:</span> 3.000 € monatlich über 25 Jahre – RPMG: €2,18 Mio., klassische bAV: €1,34 Mio.
+              <span className="font-semibold text-primary-900">Transparenz:</span> Volle Kontrolle über Ihre €2,18 Millionen Alterskapital.
             </p>
           </div>
         </div>

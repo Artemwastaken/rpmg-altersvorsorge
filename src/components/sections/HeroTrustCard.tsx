@@ -57,11 +57,8 @@ const HeroTrustCard = () => {
                   </div>
                 </div>
                 <div>
-                  <p className="text-base font-bold text-primary-900 mb-1">
-                    {metric.value}
-                  </p>
-                  <p className="text-sm text-primary-700 font-medium">
-                    {metric.label}
+                  <p className="text-base font-bold text-primary-900">
+                    {metric.value} <span className="text-sm text-primary-700 font-medium">{metric.label}</span>
                   </p>
                   <p className="text-xs text-primary-600 mt-1">
                     {metric.detail}
