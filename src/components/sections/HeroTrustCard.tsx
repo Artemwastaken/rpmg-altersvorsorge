@@ -34,7 +34,7 @@ const HeroTrustCard = () => {
 
   return (
     <HeroCarouselCard>
-      <div className="flex flex-col gap-6 h-full">
+      <div className="flex flex-col gap-4 h-full">
         <div className="text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-500">Vertrauen</p>
           <h3 className="mt-2 text-2xl md:text-3xl font-semibold text-primary-950 leading-tight">
@@ -45,9 +45,9 @@ const HeroTrustCard = () => {
           </p>
         </div>
 
-        <div className="flex flex-1 flex-col items-center justify-center py-8">
+        <div className="flex flex-1 flex-col items-center justify-center py-4">
           {/* Supporting Metrics - 2x2 Grid */}
-          <div className="grid w-full max-w-xl gap-8 grid-cols-1 sm:grid-cols-2">
+          <div className="grid w-full max-w-xl gap-6 grid-cols-1 sm:grid-cols-2">
             {metrics.map((metric, index) => (
               <div key={index} className="flex flex-col items-center gap-3 text-center">
                 <div className="relative">

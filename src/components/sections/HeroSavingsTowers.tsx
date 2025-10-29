@@ -42,7 +42,7 @@ const Tower = ({
 const HeroSavingsTowers = () => {
   return (
     <HeroCarouselCard>
-      <div className="flex flex-col gap-6 h-full">
+      <div className="flex flex-col gap-4 h-full">
         <div className="text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-500">Vergleich</p>
           <h3 className="mt-2 text-2xl md:text-3xl font-semibold text-primary-950 leading-tight">
@@ -53,7 +53,7 @@ const HeroSavingsTowers = () => {
           </p>
         </div>
 
-        <div className="flex flex-1 flex-col items-center justify-center gap-6 py-8">
+        <div className="flex flex-1 flex-col items-center justify-center gap-4 py-4">
           <div className="grid gap-6 grid-cols-1 md:grid-cols-3 items-center justify-center md:gap-6">
             <Tower
               label="Normalbesteuerung"
@@ -98,7 +98,7 @@ const HeroSavingsTowers = () => {
           </div>
         </div>
 
-        <div className="grid gap-3 text-xs text-primary-500 md:grid-cols-2">
+        <div className="grid gap-2 text-xs text-primary-500 md:grid-cols-2">
           <div className="flex flex-col gap-2 items-center md:items-start">
             <div className="flex items-start gap-2">
               <XCircle className="h-4 w-4 text-red-500 mt-0.5 flex-shrink-0" />
