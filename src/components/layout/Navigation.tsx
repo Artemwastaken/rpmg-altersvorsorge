@@ -117,7 +117,7 @@ const Navigation = () => {
         </div>
       </div>
 
-      <div className="border-t border-white/20">
+      <div className="hidden lg:block border-t border-white/20">
         <div className="container py-2">
           <p className="flex flex-col items-center justify-center gap-1 text-[11px] font-semibold tracking-[0.3em] uppercase text-primary-600/80 sm:flex-row">
             Vertrauen von <span className="text-primary-900">400+ Geschäftsführer:innen</span>
