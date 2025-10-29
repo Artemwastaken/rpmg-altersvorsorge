@@ -107,6 +107,11 @@
     box-sizing: border-box;
   }
 
+  html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
   body {
     @apply bg-primary-100 text-primary-800 font-sans;
     font-feature-settings: "rlig" 1, "calt" 1;
@@ -171,6 +176,7 @@
 
   .section-padding {
     @apply py-16 md:py-24;
+    overflow-x: hidden;
   }
 
   .gradient-text {
