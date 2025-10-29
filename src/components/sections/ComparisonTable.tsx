@@ -81,16 +81,22 @@ const ComparisonTable = () => {
           <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
             {/* Table Header */}
             <div className="grid grid-cols-3 bg-primary-600 text-white">
-              <div className="p-6">
-                <h3 className="font-bold text-lg text-white">Kriterium</h3>
+              <div className="p-3 md:p-6">
+                <h3 className="font-bold text-xs md:text-lg text-white break-words">Kriterium</h3>
               </div>
-              <div className="p-6 bg-primary-700 border-l border-primary-500">
-                <h3 className="font-bold text-lg text-white">Direktversicherung</h3>
-                <p className="text-sm text-white/90 mt-1">§ 3 Nr. 63 EStG</p>
+              <div className="p-3 md:p-6 bg-primary-700 border-l border-primary-500">
+                <h3 className="font-bold text-xs md:text-lg text-white leading-tight">
+                  <span className="md:hidden">Direkt-<br/>versicherung</span>
+                  <span className="hidden md:inline">Direktversicherung</span>
+                </h3>
+                <p className="text-[10px] md:text-sm text-white/90 mt-1">§ 3 Nr. 63 EStG</p>
               </div>
-              <div className="p-6 bg-primary-800 border-l border-primary-600">
-                <h3 className="font-bold text-lg text-white">Unterstützungskasse</h3>
-                <p className="text-sm text-white/90 mt-1">§ 4d EStG</p>
+              <div className="p-3 md:p-6 bg-primary-800 border-l border-primary-600">
+                <h3 className="font-bold text-xs md:text-lg text-white leading-tight">
+                  <span className="md:hidden">Unterstützungs-<br/>kasse</span>
+                  <span className="hidden md:inline">Unterstützungskasse</span>
+                </h3>
+                <p className="text-[10px] md:text-sm text-white/90 mt-1">§ 4d EStG</p>
               </div>
             </div>
 
@@ -101,29 +107,29 @@ const ComparisonTable = () => {
                   key={index}
                   className={`grid grid-cols-3 ${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}`}
                 >
-                  <div className="p-6">
-                    <p className="font-semibold text-gray-900">{row.feature}</p>
+                  <div className="p-3 md:p-6 flex items-center justify-center">
+                    <p className="font-semibold text-[11px] md:text-base text-gray-900 break-words leading-tight text-center">{row.feature}</p>
                   </div>
-                  <div className="p-6 border-l border-gray-200">
+                  <div className="p-3 md:p-6 border-l border-gray-200 flex items-center justify-center">
                     {typeof row.direct === 'boolean' ? (
                       row.direct ? (
-                        <Check className="w-6 h-6 text-green-600" />
+                        <Check className="w-4 h-4 md:w-6 md:h-6 text-green-600" />
                       ) : (
-                        <X className="w-6 h-6 text-red-400" />
+                        <X className="w-4 h-4 md:w-6 md:h-6 text-red-400" />
                       )
                     ) : (
-                      <p className="text-gray-700">{row.direct}</p>
+                      <p className="text-[10px] md:text-base text-gray-700 break-words leading-tight text-center">{row.direct}</p>
                     )}
                   </div>
-                  <div className="p-6 border-l border-gray-200">
+                  <div className="p-3 md:p-6 border-l border-gray-200 flex items-center justify-center">
                     {typeof row.support === 'boolean' ? (
                       row.support ? (
-                        <Check className="w-6 h-6 text-green-600" />
+                        <Check className="w-4 h-4 md:w-6 md:h-6 text-green-600" />
                       ) : (
-                        <X className="w-6 h-6 text-red-400" />
+                        <X className="w-4 h-4 md:w-6 md:h-6 text-red-400" />
                       )
                     ) : (
-                      <p className="text-gray-700">{row.support}</p>
+                      <p className="text-[10px] md:text-base text-gray-700 break-words leading-tight text-center">{row.support}</p>
                     )}
                   </div>
                 </div>
@@ -131,8 +137,8 @@ const ComparisonTable = () => {
             </div>
 
             {/* Table Footer */}
-            <div className="bg-gradient-to-r from-primary-600 to-primary-700 p-6 text-white">
-              <p className="text-center font-semibold">
+            <div className="bg-gradient-to-r from-primary-600 to-primary-700 p-4 md:p-6 text-white">
+              <p className="text-center font-semibold text-xs md:text-base leading-tight">
                 ✓ Beide Wege kombinierbar für maximale Steuerersparnis bis zu 100.000 € pro Jahr
               </p>
             </div>
