@@ -13,6 +13,7 @@ const HeroIllustration = () => {
   const [currentCard, setCurrentCard] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
   const [progress, setProgress] = useState(0)
+  const [dragDirection, setDragDirection] = useState(0)
 
   const cards = [
     { component: HeroSavingsTowers, key: 'towers' },
@@ -49,6 +50,27 @@ const HeroIllustration = () => {
     setProgress(0)
   }
 
+  const goToNextCard = () => {
+    setDragDirection(1)
+    setCurrentCard((prev) => (prev + 1) % cards.length)
+    setProgress(0)
+  }
+
+  const goToPrevCard = () => {
+    setDragDirection(-1)
+    setCurrentCard((prev) => (prev - 1 + cards.length) % cards.length)
+    setProgress(0)
+  }
+
+  const handleDragEnd = (_event: any, info: any) => {
+    const swipeThreshold = 50
+    if (info.offset.x > swipeThreshold) {
+      goToPrevCard()
+    } else if (info.offset.x < -swipeThreshold) {
+      goToNextCard()
+    }
+  }
+
   return (
     <div
       className="relative flex w-full flex-col items-center gap-6 pr-4 md:pr-0"
@@ -56,13 +78,19 @@ const HeroIllustration = () => {
       onMouseLeave={() => setIsPaused(false)}
     >
       <div className="relative w-full min-h-[620px]">
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait" custom={dragDirection}>
           <motion.div
             key={cards[currentCard].key}
-            initial={{ opacity: 0, scale: 0.96, y: 16 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.96, y: -16 }}
+            custom={dragDirection}
+            initial={{ opacity: 0, x: dragDirection * 100, scale: 0.96 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            exit={{ opacity: 0, x: dragDirection * -100, scale: 0.96 }}
             transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.3}
+            onDragEnd={handleDragEnd}
+            className="cursor-grab active:cursor-grabbing"
           >
             <CurrentCardComponent />
           </motion.div>

@@ -50,12 +50,6 @@ const SavingsCalculator = () => {
     return Math.round(raw / 1) * 1
   }
 
-  const triggerHapticFeedback = () => {
-    if (typeof window !== 'undefined' && 'vibrate' in navigator) {
-      navigator.vibrate(10) // 10ms vibration
-    }
-  }
-
   const tickMarks = [
     { value: 292, label: '292 €', description: 'SV-frei', accent: true },
     { value: 644, label: '644 €', description: 'Max. steuerfrei', accent: true }
@@ -137,7 +131,7 @@ const SavingsCalculator = () => {
                       <span>Monatlicher Beitrag</span>
                       <span className="font-semibold text-primary-700 text-lg">{formatCurrency(monthlyAmount)}</span>
                     </label>
-                    <div className="relative pt-8">
+                    <div className="relative">
                       <input
                         type="range"
                         min={50}
@@ -147,7 +141,6 @@ const SavingsCalculator = () => {
                         onChange={(e) => {
                           const newValue = getSnappedValue(Number(e.target.value))
                           if (newValue !== monthlyAmount) {
-                            triggerHapticFeedback()
                             setMonthlyAmount(newValue)
                           }
                         }}
@@ -156,21 +149,6 @@ const SavingsCalculator = () => {
                           background: `linear-gradient(to right, #8B6A3C 0%, #CDAA6D ${((monthlyAmount - 50) / (3000 - 50)) * 100}%, #E7DFD6 ${((monthlyAmount - 50) / (3000 - 50)) * 100}%, #E7DFD6 100%)`
                         }}
                       />
-                      <motion.div
-                        key={monthlyAmount}
-                        initial={{ opacity: 0, y: 6 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.2 }}
-                        className="absolute -top-11"
-                        style={{
-                          left: `calc(${((monthlyAmount - 50) / (3000 - 50)) * 100}% + ${12 - ((monthlyAmount - 50) / (3000 - 50)) * 24}px)`,
-                          transform: 'translateX(-50%)'
-                        }}
-                      >
-                        <div className="px-3 py-1 rounded-full bg-primary-600 text-white text-xs font-semibold shadow">
-                          {formatCurrency(monthlyAmount)}
-                        </div>
-                      </motion.div>
                       <div className="flex justify-between text-xs text-gray-500 mt-3">
                         <span>50 €</span>
                         <span>3.000 €</span>
@@ -204,7 +182,7 @@ const SavingsCalculator = () => {
                       <span>Laufzeit</span>
                       <span className="font-semibold text-primary-700 text-lg">{years} Jahre</span>
                     </label>
-                    <div className="relative pt-8">
+                    <div className="relative">
                       <input
                         type="range"
                         min={5}
@@ -214,7 +192,6 @@ const SavingsCalculator = () => {
                         onChange={(e) => {
                           const newValue = getSnappedYears(Number(e.target.value))
                           if (newValue !== years) {
-                            triggerHapticFeedback()
                             setYears(newValue)
                           }
                         }}
@@ -223,21 +200,6 @@ const SavingsCalculator = () => {
                           background: `linear-gradient(to right, #8B6A3C 0%, #CDAA6D ${((years - 5) / (40 - 5)) * 100}%, #E7DFD6 ${((years - 5) / (40 - 5)) * 100}%, #E7DFD6 100%)`
                         }}
                       />
-                      <motion.div
-                        key={years}
-                        initial={{ opacity: 0, y: 6 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.2 }}
-                        className="absolute -top-11"
-                        style={{
-                          left: `calc(${((years - 5) / (40 - 5)) * 100}% + ${12 - ((years - 5) / (40 - 5)) * 24}px)`,
-                          transform: 'translateX(-50%)'
-                        }}
-                      >
-                        <div className="px-3 py-1 rounded-full bg-primary-600 text-white text-xs font-semibold shadow">
-                          {years} Jahre
-                        </div>
-                      </motion.div>
                       <div className="flex justify-between text-xs text-gray-500 mt-3">
                         <span>5 Jahre</span>
                         <span>40 Jahre</span>
