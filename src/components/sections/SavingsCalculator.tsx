@@ -50,6 +50,12 @@ const SavingsCalculator = () => {
     return Math.round(raw / 1) * 1
   }
 
+  const triggerHapticFeedback = () => {
+    if (typeof window !== 'undefined' && 'vibrate' in navigator) {
+      navigator.vibrate(10) // 10ms vibration
+    }
+  }
+
   const tickMarks = [
     { value: 292, label: '292 €', description: 'SV-frei', accent: true },
     { value: 644, label: '644 €', description: 'Max. steuerfrei', accent: true }
@@ -138,7 +144,13 @@ const SavingsCalculator = () => {
                         max={3000}
                         step={1}
                         value={monthlyAmount}
-                        onChange={(e) => setMonthlyAmount(getSnappedValue(Number(e.target.value)))}
+                        onChange={(e) => {
+                          const newValue = getSnappedValue(Number(e.target.value))
+                          if (newValue !== monthlyAmount) {
+                            triggerHapticFeedback()
+                            setMonthlyAmount(newValue)
+                          }
+                        }}
                         className="w-full appearance-none h-2 rounded-full bg-primary-100 outline-none"
                         style={{
                           background: `linear-gradient(to right, #8B6A3C 0%, #CDAA6D ${((monthlyAmount - 50) / (3000 - 50)) * 100}%, #E7DFD6 ${((monthlyAmount - 50) / (3000 - 50)) * 100}%, #E7DFD6 100%)`
@@ -199,7 +211,13 @@ const SavingsCalculator = () => {
                         max={40}
                         step={1}
                         value={years}
-                        onChange={(e) => setYears(getSnappedYears(Number(e.target.value)))}
+                        onChange={(e) => {
+                          const newValue = getSnappedYears(Number(e.target.value))
+                          if (newValue !== years) {
+                            triggerHapticFeedback()
+                            setYears(newValue)
+                          }
+                        }}
                         className="w-full appearance-none h-2 rounded-full bg-primary-100 outline-none"
                         style={{
                           background: `linear-gradient(to right, #8B6A3C 0%, #CDAA6D ${((years - 5) / (40 - 5)) * 100}%, #E7DFD6 ${((years - 5) / (40 - 5)) * 100}%, #E7DFD6 100%)`

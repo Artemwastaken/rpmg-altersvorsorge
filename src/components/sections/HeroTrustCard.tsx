@@ -47,7 +47,7 @@ const HeroTrustCard = () => {
 
         <div className="flex flex-1 flex-col items-center justify-center py-4">
           {/* Supporting Metrics - 2x2 Grid */}
-          <div className="grid w-full max-w-xl gap-6 grid-cols-1 sm:grid-cols-2">
+          <div className="grid w-full max-w-xl gap-4 grid-cols-2">
             {metrics.map((metric, index) => (
               <div key={index} className="flex flex-col items-center gap-3 text-center">
                 <div className="relative">

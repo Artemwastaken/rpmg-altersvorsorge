@@ -20,19 +20,19 @@ const Tower = ({
     copy: string
   }>
 }) => (
-  <div className="flex flex-col items-center gap-4 text-center">
+  <div className="flex flex-col items-center gap-2 text-center">
     <div className="flex flex-col items-center gap-1">
-      <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-primary-500">{label}</span>
+      <span className="text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.2em] md:tracking-[0.3em] text-primary-500">{label}</span>
     </div>
-    <div className="relative flex h-56 w-40 flex-col justify-end overflow-hidden rounded-3xl border border-white/60 bg-white/85 shadow-[0_28px_70px_-40px_rgba(15,23,42,0.65)]">
+    <div className="relative flex h-48 md:h-56 w-32 md:w-40 flex-col justify-end overflow-hidden rounded-2xl md:rounded-3xl border border-white/60 bg-white/85 shadow-[0_28px_70px_-40px_rgba(15,23,42,0.65)]">
       {segments.map((segment) => (
         <div
           key={`${label}-${segment.title}`}
           style={{ height: `${segment.height}%`, backgroundColor: segment.color }}
-          className="flex flex-col items-center justify-center px-2.5 text-center md:px-3.5"
+          className="flex flex-col items-center justify-center px-2 md:px-3.5 text-center"
         >
-          <p className="text-xs font-semibold text-primary-900">{segment.title}</p>
-          <p className="text-[11px] text-primary-700">{segment.copy}</p>
+          <p className="text-[10px] md:text-xs font-semibold text-primary-900">{segment.title}</p>
+          <p className="text-[9px] md:text-[11px] text-primary-700">{segment.copy}</p>
         </div>
       ))}
     </div>
@@ -53,8 +53,8 @@ const HeroSavingsTowers = () => {
           </p>
         </div>
 
-        <div className="flex flex-1 flex-col items-center justify-center gap-4 py-4">
-          <div className="grid gap-6 grid-cols-1 md:grid-cols-3 items-center justify-center md:gap-6">
+        <div className="flex flex-1 flex-col items-center justify-center gap-3 py-3">
+          <div className="grid gap-4 grid-cols-2 md:grid-cols-3 items-center justify-center md:gap-6">
             <Tower
               label="Normalbesteuerung"
               total="~€55.000 bleibt übrig"
@@ -98,33 +98,40 @@ const HeroSavingsTowers = () => {
           </div>
         </div>
 
-        <div className="grid gap-2 text-xs text-primary-500 md:grid-cols-2">
-          <div className="flex flex-col gap-2 items-center md:items-start">
-            <div className="flex items-start gap-2">
-              <XCircle className="h-4 w-4 text-red-500 mt-0.5 flex-shrink-0" />
-              <p className="text-primary-700">€45.000 ans Finanzamt</p>
+        <div className="flex flex-col gap-1 text-xs text-primary-500">
+          {/* Row 1 */}
+          <div className="grid grid-cols-2 gap-1">
+            <div className="flex items-start gap-1">
+              <XCircle className="h-3 w-3 md:h-4 md:w-4 text-red-500 mt-0.5 flex-shrink-0" />
+              <p className="text-[10px] md:text-xs text-primary-700">€45.000 ans Finanzamt</p>
             </div>
-            <div className="flex items-start gap-2">
-              <XCircle className="h-4 w-4 text-red-500 mt-0.5 flex-shrink-0" />
-              <p className="text-primary-700">Jedes Jahr aufs Neue</p>
-            </div>
-            <div className="flex items-start gap-2">
-              <XCircle className="h-4 w-4 text-red-500 mt-0.5 flex-shrink-0" />
-              <p className="text-primary-700">Nur €55.000 bleiben übrig</p>
+            <div className="flex items-start gap-1">
+              <CheckCircle className="h-3 w-3 md:h-4 md:w-4 text-green-600 mt-0.5 flex-shrink-0" />
+              <p className="text-[10px] md:text-xs text-primary-700">€100.000 steuerfrei investiert</p>
             </div>
           </div>
-          <div className="flex flex-col gap-2 items-center md:items-start">
-            <div className="flex items-start gap-2">
-              <CheckCircle className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" />
-              <p className="text-primary-700">€100.000 steuerfrei investiert</p>
+
+          {/* Row 2 */}
+          <div className="grid grid-cols-2 gap-1">
+            <div className="flex items-start gap-1">
+              <XCircle className="h-3 w-3 md:h-4 md:w-4 text-red-500 mt-0.5 flex-shrink-0" />
+              <p className="text-[10px] md:text-xs text-primary-700">Jedes Jahr aufs Neue</p>
             </div>
-            <div className="flex items-start gap-2">
-              <CheckCircle className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" />
-              <p className="text-primary-700">Sofort Renditechancen (Ø 7%)</p>
+            <div className="flex items-start gap-1">
+              <CheckCircle className="h-3 w-3 md:h-4 md:w-4 text-green-600 mt-0.5 flex-shrink-0" />
+              <p className="text-[10px] md:text-xs text-primary-700">Sofort Renditechancen (Ø 7%)</p>
             </div>
-            <div className="flex items-start gap-2">
-              <CheckCircle className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" />
-              <p className="text-primary-700">Ihr volles Kapital arbeitet</p>
+          </div>
+
+          {/* Row 3 */}
+          <div className="grid grid-cols-2 gap-1">
+            <div className="flex items-start gap-1">
+              <XCircle className="h-3 w-3 md:h-4 md:w-4 text-red-500 mt-0.5 flex-shrink-0" />
+              <p className="text-[10px] md:text-xs text-primary-700">Nur €55.000 bleiben übrig</p>
+            </div>
+            <div className="flex items-start gap-1">
+              <CheckCircle className="h-3 w-3 md:h-4 md:w-4 text-green-600 mt-0.5 flex-shrink-0" />
+              <p className="text-[10px] md:text-xs text-primary-700">Ihr volles Kapital arbeitet</p>
             </div>
           </div>
         </div>
