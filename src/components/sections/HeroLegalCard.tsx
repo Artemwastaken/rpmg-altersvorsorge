@@ -41,7 +41,7 @@ const HeroLegalCard = () => {
 
         <div className="flex flex-1 flex-col items-center justify-center py-8">
           {/* Three Pillars of Security */}
-          <div className="grid w-full max-w-2xl gap-8 sm:grid-cols-3">
+          <div className="grid w-full max-w-2xl gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {protections.map((protection, index) => (
               <div key={index} className="flex flex-col items-center gap-3 text-center">
                 <div className="relative">

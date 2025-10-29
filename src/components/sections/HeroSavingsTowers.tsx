@@ -54,7 +54,7 @@ const HeroSavingsTowers = () => {
         </div>
 
         <div className="flex flex-1 flex-col items-center justify-center gap-6 py-8">
-          <div className="grid gap-6 md:flex md:items-start md:justify-center md:gap-6">
+          <div className="grid gap-6 grid-cols-1 md:grid-cols-3 items-center justify-center md:gap-6">
             <Tower
               label="Normalbesteuerung"
               total="~€55.000 bleibt übrig"
@@ -75,7 +75,7 @@ const HeroSavingsTowers = () => {
               ]}
             />
 
-            <div className="hidden md:flex md:self-end flex-col items-center gap-2 pb-2 text-center text-primary-600">
+            <div className="hidden md:flex flex-col items-center gap-2 text-center text-primary-600">
               <span className="h-12 w-px bg-gradient-to-b from-primary-200 via-primary-300 to-primary-200" aria-hidden="true" />
               <span className="text-[11px] font-semibold uppercase tracking-[0.35em] text-primary-500">Vorteil</span>
               <span className="text-sm font-semibold text-green-600">+€45.000</span>
