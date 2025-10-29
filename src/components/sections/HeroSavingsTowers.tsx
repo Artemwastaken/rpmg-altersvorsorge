@@ -42,15 +42,18 @@ const Tower = ({
 const HeroSavingsTowers = () => {
   return (
     <HeroCarouselCard>
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-6 h-full">
         <div className="text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-500">Vergleich</p>
-          <h3 className="mt-2 text-3xl font-semibold text-primary-950">
+          <h3 className="mt-2 text-2xl md:text-3xl font-semibold text-primary-950 leading-tight">
             €100.000 Gewinn: Was kommt wirklich bei Ihnen an?
           </h3>
+          <p className="mt-2 text-sm text-primary-700">
+            Sehen Sie den direkten Vergleich zwischen Normalbesteuerung und RPMG-Optimierung
+          </p>
         </div>
 
-        <div className="flex flex-1 flex-col justify-center gap-6 py-6">
+        <div className="flex flex-1 flex-col items-center justify-center gap-6 py-8">
           <div className="grid gap-6 md:flex md:items-start md:justify-center md:gap-6">
             <Tower
               label="Normalbesteuerung"

@@ -37,7 +37,7 @@ const HeroTrustCard = () => {
       <div className="flex flex-col gap-6 h-full">
         <div className="text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-500">Vertrauen</p>
-          <h3 className="mt-2 text-3xl font-semibold text-primary-950 leading-tight">
+          <h3 className="mt-2 text-2xl md:text-3xl font-semibold text-primary-950 leading-tight">
             Vertraut von Deutschlands erfolgreichsten Unternehmern
           </h3>
           <p className="mt-2 text-sm text-primary-700">
