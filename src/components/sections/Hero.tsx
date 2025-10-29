@@ -40,7 +40,7 @@ const Hero = () => {
       />
 
       <motion.div
-        className="container relative mx-auto max-w-7xl min-h-[620px] py-20 lg:py-28 grid grid-cols-1 lg:grid-cols-2 items-center gap-8"
+        className="container relative mx-auto max-w-7xl min-h-[620px] pt-32 pb-20 lg:py-28 grid grid-cols-1 lg:grid-cols-2 items-center gap-8"
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
@@ -50,7 +50,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="relative z-20 space-y-8 max-w-xl -mt-[10%]"
+          className="relative z-20 space-y-8 max-w-xl lg:-mt-[10%]"
         >
           <div className="space-y-3">
             <div className="inline-flex items-center gap-3">
