@@ -14,12 +14,12 @@ const ComparisonTable = () => {
     {
       feature: 'Monatlicher Höchstbeitrag',
       direct: '644 €',
-      support: '3.000 €',
+      support: 'unbegrenzt',
     },
     {
       feature: 'Jährlicher Höchstbeitrag',
       direct: '7.728 €',
-      support: '36.000 €',
+      support: 'unbegrenzt',
     },
     {
       feature: 'Steuerliche Behandlung',
@@ -64,8 +64,7 @@ const ComparisonTable = () => {
             § 3 Nr. 63 EStG vs. <span className="gradient-text">§ 4d EStG</span>
           </h2>
           <p className="text-xl text-gray-600 leading-relaxed">
-            Beide Vorsorgewege bieten erhebliche Steuervorteile. Kombinieren Sie sie für
-            maximale Steuerersparnis von bis zu 100.000 € pro Jahr.
+            Beide Vorsorgewege bieten erhebliche Steuervorteile. Kombinieren Sie sie für eine Steuerersparnis von bis zu 100.000 € pro Jahr.
           </p>
         </motion.div>
 
@@ -139,7 +138,7 @@ const ComparisonTable = () => {
             {/* Table Footer */}
             <div className="bg-gradient-to-r from-primary-600 to-primary-700 p-4 md:p-6 text-white">
               <p className="text-center font-semibold text-xs md:text-base leading-tight">
-                ✓ Beide Wege kombinierbar für maximale Steuerersparnis bis zu 100.000 € pro Jahr
+                ✓ Beide Wege kombinierbar für eine Steuerersparnis bis zu 100.000 € pro Jahr
               </p>
             </div>
           </div>

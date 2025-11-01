@@ -100,8 +100,7 @@ const SavingsCalculator = () => {
             Was kann ich <span className="gradient-text">sparen?</span>
           </h2>
           <p className="text-xl text-gray-600 leading-relaxed">
-            Berechnen Sie Ihre individuelle Steuerersparnis und Ihr Vermögen im Ruhestand.
-            Passen Sie die Werte an Ihre Situation an – die Ergebnisse aktualisieren sich sofort.
+            Berechnen Sie Ihre individuelle Steuerersparnis und Ihr Vermögen im Ruhestand. Passen Sie die Werte an Ihre Situation an – die Ergebnisse aktualisieren sich sofort.
           </p>
         </motion.div>
 
@@ -292,7 +291,7 @@ const SavingsCalculator = () => {
                       </div>
                     </div>
                     <p className="text-sm text-white/70">
-                      Reinvestition Ihrer monatlichen Einlage inklusive Steuerbonus bei 7 % Rendite.
+                      bei monatlichem Sparen und 7 % Rendite.
                     </p>
                   </motion.div>
 
@@ -314,7 +313,7 @@ const SavingsCalculator = () => {
                       </div>
                     </div>
                     <p className="text-sm text-white/70">
-                      Verglichen mit einer klassischen Ausschüttung nach Steuern.
+                      Verglichen mit einer klassischen Anlage nach Steuern.
                     </p>
                   </motion.div>
                 </div>

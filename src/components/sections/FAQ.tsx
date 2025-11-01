@@ -9,24 +9,36 @@ const FAQ = () => {
 
   const faqs = [
     {
-      question: 'Wie funktioniert die steuerfreie Übertragung von bis zu 100.000 € pro Jahr?',
-      answer: 'Zwei Wege: § 3 Nr. 63 EStG (644 €/Monat ab sofort) + § 4d EStG (3.000 €/Monat nach 5 Jahren). Beide voll als Betriebsausgabe abzugsfähig, kombinierbar für bis zu 100.000 € jährlich.',
+      question: 'Wie wird das Kapital investiert?',
+      answer: 'typischerweise in intelligente ETF- und in Investmentfondsstrategien, um eine breite Streuung und attraktive Renditechancen zu erzielen.',
     },
     {
-      question: 'Für wen eignet sich die betriebliche Altersvorsorge?',
-      answer: 'Ideal für Geschäftsführer und Gesellschafter-Geschäftsführer von GmbHs oder UGs mit ausreichenden Gewinnen. Besonders lohnenswert ab 50.000 € Jahresgewinn.',
+      question: 'Für wen eignet sich das Konzept?',
+      answer: 'Ideal für Geschäftsführer und Gesellschafter-Geschäftsführer von GmbHs oder UGs mit ausreichenden Gewinnen. Besonders lohnenswert ab 50.000 € Jahresgewinn. Um Ihnen eine optimale Beratung anbieten zu können, empfehlen wir eine Laufzeit von mindestens 12-15 Jahren bis zum Ruhestand. So können Sie das volle Potenzial der Steuervorteile ausschöpfen.',
     },
     {
       question: 'Wie hoch ist die tatsächliche Steuerersparnis?',
-      answer: 'Bei 3.000 € monatlich und 42% Grenzsteuersatz sparen Sie 15.120 € jährlich. Nach 25 Jahren bei 7% Rendite: ca. 1.574.000 € Gesamtvermögen.',
+      answer: 'Diese Antwort ist sehr individuell. Bei einem Beispiel von 3.000 € monatlichem Aufwand und 42% Grenzsteuersatz sparen Sie 15.120 € jährlich.',
     },
     {
-      question: 'Wie sicher ist meine betriebliche Altersvorsorge?',
-      answer: 'Geschützt durch den Pensionssicherungsverein (PSVaG). Rechtlich verbindlich, insolvenzgeschützt, professionelle Vermögensverwaltung.',
+      question: 'Wie sicher ist das Konzept?',
+      answer: 'Da wir uns hier im geregelten Rechtsrahmen bewegen brauchen Sie sich keine Sorgen zu machen. Das Konzept ist rechtlich verbindlich und Ihr Vermögen am Ende insolvenzgeschützt.',
     },
     {
       question: 'Wie lange dauert die Einrichtung?',
-      answer: '4-6 Wochen nach Erstberatung. Umfasst: rechtliche Prüfung, Versorgungszusage, Steuerberater-Abstimmung, Einrichtung aller Vorsorgewege.',
+      answer: '4-6 Wochen nach Erstberatung',
+    },
+    {
+      question: 'Handelt es sich bei der Beratung um eine Steuerberatung?',
+      answer: 'Nein, wir selbst sind ausdrücklich keine Steuerberatung. Unsere Konzepte und die Umsetzung kann in Koordination mit Ihrem Steuerberater erfolgen.',
+    },
+    {
+      question: 'Bieten Sie auch Beratungen vor Ort an?',
+      answer: 'Nein! Da wir deutschlandweit beraten liegt unser Fokus auf einer modernen onlinebasierten Beratung.',
+    },
+    {
+      question: 'Wie läuft die kostenlose Erstberatung ab?',
+      answer: 'Sobald Sie einen Termin zur kostenlosen Erstberatung buchen, bekommen Sie eine Bestätigung und einen Link zu Ihrem Onlinetermin. Im Termin wird Ihnen das Konzept erläutert. Einer unserer Spezialisten erklärt in rund 30-45 Minuten, ob und wie sich das Konzept in Ihrem Fall umsetzen lässt. Kostenlos und unverbindlich.',
     },
   ]
 

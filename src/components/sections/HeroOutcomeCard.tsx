@@ -63,7 +63,7 @@ const HeroOutcomeCard = () => {
               </div>
               <div className="flex items-center gap-2">
                 <div className="h-0.5 w-6 border-t-2 border-dashed border-gray-400" />
-                <span className="text-primary-600">Klassische bAV (Ø 3% p.a.)</span>
+                <span className="text-primary-600">Klassische Anbieter (Ø 3% p.a.)</span>
               </div>
             </div>
           </div>

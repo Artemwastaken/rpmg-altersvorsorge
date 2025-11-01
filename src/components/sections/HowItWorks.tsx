@@ -17,7 +17,7 @@ const HowItWorks = () => {
       number: '02',
       icon: FileText,
       title: 'Konzept',
-      description: 'Maßgeschneiderte Strategie + Steuerberater-Abstimmung',
+      description: 'Maßgeschneiderte Strategie',
       features: [],
     },
     {
@@ -43,7 +43,7 @@ const HowItWorks = () => {
         >
           <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-6">
             In 3 Schritten zu Ihrer{' '}
-            <span className="gradient-text">Altersvorsorge</span>
+            <span className="gradient-text">Versorgung</span>
           </h2>
           <p className="text-xl text-gray-600 leading-relaxed">
             Wir begleiten Sie von der ersten Analyse bis zur vollständigen Umsetzung
@@ -126,8 +126,7 @@ const HowItWorks = () => {
               Bereit für den ersten Schritt?
             </h3>
             <p className="text-white/90 text-lg mb-6">
-              Vereinbaren Sie jetzt Ihre kostenlose Erstberatung und erfahren Sie,
-              wie viel Sie mit der betrieblichen Altersvorsorge sparen können.
+              Vereinbaren Sie jetzt Ihre kostenlose Erstberatung und erfahren Sie, wie viel Sie sparen können.
             </p>
             <a
               href="#beratung"

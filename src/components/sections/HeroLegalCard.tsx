@@ -9,20 +9,20 @@ const HeroLegalCard = () => {
     {
       icon: Building2,
       title: 'Staatlich überwacht',
-      subtitle: 'BaFin-Aufsicht',
-      detail: 'D-H9DS-JA2R-92',
+      subtitle: 'gesetzliche Sicherheit',
+      detail: '',
     },
     {
       icon: Shield,
       title: 'Insolvenzsicher',
-      subtitle: 'PSVaG-Schutz',
-      detail: 'Gesetzlich geschützt',
+      subtitle: 'geschütztes Privatvermögen',
+      detail: '',
     },
     {
       icon: Award,
       title: '10+ Jahre bewährt',
-      subtitle: '400+ Mandate',
-      detail: 'Ohne Beanstandung',
+      subtitle: 'vertrauen Sie unserer Erfahrung',
+      detail: '',
     },
   ]
 
@@ -71,7 +71,7 @@ const HeroLegalCard = () => {
           <div className="flex items-center justify-center gap-2 text-center">
             <CheckCircle className="h-3 w-3 md:h-4 md:w-4 text-green-600 flex-shrink-0" />
             <p className="text-[10px] md:text-xs text-primary-700">
-              <span className="font-semibold text-primary-900">Geprüft und bestätigt</span> durch unabhängige Wirtschaftsprüfer
+              <span className="font-semibold text-primary-900">Geprüft und bestätigt</span>
             </p>
           </div>
         </div>

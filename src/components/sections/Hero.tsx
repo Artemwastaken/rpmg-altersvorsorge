@@ -67,7 +67,7 @@ const Hero = () => {
               Für Unternehmer, Geschäftsführer & Vorstände
             </p>
             <h1 className="text-4xl lg:text-6xl font-bold text-primary-950 leading-tight">
-              Schützen Sie Ihr <span className="gradient-text">Vermögen</span> – bis zu 100.000 € jährlich steuerfrei
+              Steuern sparen & Privatvermögen aufbauen – 100.000€ Gewinn = 100.000€ für den <span className="gradient-text">Vermögensaufbau</span>
             </h1>
 
             <div className="space-y-3">

@@ -90,7 +90,7 @@ const ConsultationForm = () => {
             <span className="gradient-text">Beratung</span>
           </h2>
           <p className="text-xl text-gray-600 leading-relaxed">
-            Vereinbaren Sie ein kostenloses Erstgespräch zur individuellen Ruhestandsplanung.
+            Vereinbaren Sie ein kostenloses Erstgespräch zur individuellen Vermögensplanung.
             Wir analysieren Ihre Situation und zeigen Ihnen konkrete Optimierungspotenziale.
           </p>
         </motion.div>
@@ -168,7 +168,7 @@ const ConsultationForm = () => {
                   'Analyse Ihrer aktuellen Situation',
                   'Aufzeigen von Optimierungspotenzialen',
                   'Konkrete Handlungsempfehlungen',
-                  'Individuelle Ruhestandsplanung',
+                  'Individuelle Vermögensplanung',
                   'Alle Ihre Fragen werden beantwortet',
                 ].map((item, index) => (
                   <li key={index} className="flex items-start gap-3">

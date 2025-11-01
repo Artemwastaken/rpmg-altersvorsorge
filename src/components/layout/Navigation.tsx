@@ -9,11 +9,14 @@ import { cn } from '@/utils/cn'
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false)
+  const [showTrustBanner, setShowTrustBanner] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10)
+      // Show trust banner after scrolling past hero section (approximately 200px)
+      setShowTrustBanner(window.scrollY > 200)
     }
 
     window.addEventListener('scroll', handleScroll)
@@ -117,11 +120,15 @@ const Navigation = () => {
         </div>
       </div>
 
-      <div className="hidden lg:block border-t border-white/20">
+      <div
+        className={cn(
+          "hidden lg:block border-t border-white/20 transition-all duration-500 ease-in-out overflow-hidden",
+          showTrustBanner ? "max-h-20 opacity-100" : "max-h-0 opacity-0"
+        )}
+      >
         <div className="container py-2">
           <p className="flex flex-col items-center justify-center gap-1 text-[11px] font-semibold tracking-[0.3em] uppercase text-primary-600/80 sm:flex-row">
-            Vertrauen von <span className="text-primary-900">400+ Geschäftsführer:innen</span>
-            <span className="hidden sm:inline">in Deutschland</span>
+            Verlässliche Beratung. Maßgeschneiderte Lösungen. Für Geschäftsführer, die vorausschauend handeln.
           </p>
         </div>
       </div>

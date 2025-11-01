@@ -19,27 +19,27 @@ const BenefitsGrid = () => {
   const benefits = [
     {
       icon: TrendingUp,
-      title: 'Bis zu 15.120 € Steuerersparnis jährlich',
+      title: 'Profitieren Sie z.B. von 15.120 € Steuerersparnis jährlich',
       description: 'Bei 42% Grenzsteuersatz und 3.000 € monatlich.',
-      highlight: 'Maximale Ersparnis',
+      highlight: 'Unternehmenssteuern sparen',
     },
     {
       icon: PiggyBank,
       title: '100 % Betriebsausgabe – mindert Ihren Gewinn',
       description: 'Vollständig abzugsfähig, senkt steuerpflichtigen Gewinn.',
-      highlight: '100% Abzug',
+      highlight: 'Privatvermögen aufbauen mit Ihrem Gewinn',
     },
     {
       icon: Shield,
       title: 'Insolvenzsicher & rechtlich abgesichert',
-      description: 'Geschützt durch Pensionssicherungsverein (PSVaG).',
-      highlight: 'PSVaG geschützt',
+      description: 'privater Wohlstand auch in Krisen gesichert',
+      highlight: 'durch staatliche Vorgaben geschützt',
     },
     {
       icon: Users,
       title: 'Auch für Ehepartner & Familie nutzbar',
       description: 'Zusätzliche Steuervorteile für die ganze Familie.',
-      highlight: 'Familie absichern',
+      highlight: 'Familienvermögen erhöhen',
     },
   ]
 

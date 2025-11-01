@@ -14,12 +14,12 @@ const ProblemStatement = () => {
     {
       icon: AlertCircle,
       title: 'Komplexe Vorsorgeoptionen',
-      description: '§3 Nr. 63, §4d, bAV, Rürup - welcher Weg ist richtig?',
+      description: '§ 3 Nr. 63 und § 4d EStG, bAV, Rürup - welcher Weg ist richtig?',
     },
     {
       icon: Clock,
       title: 'Keine Zeit für Finanzplanung',
-      description: 'Zwischen Tagesgeschäft und Strategie fehlt die Zeit',
+      description: 'Zwischen Tagesgeschäft und Unternehmensentwicklung fehlt die Zeit',
     },
   ]
 
@@ -36,7 +36,7 @@ const ProblemStatement = () => {
           className="text-center max-w-3xl mx-auto mb-12"
         >
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-            3 Herausforderungen erfolgreicher <span className="gradient-text">Geschäftsführer</span>
+            3 Herausforderungen für <span className="gradient-text">Geschäftsführer</span>
           </h2>
           <p className="text-lg text-gray-600">
             Sie sind nicht allein: Diese Themen beschäftigen die meisten Unternehmer
