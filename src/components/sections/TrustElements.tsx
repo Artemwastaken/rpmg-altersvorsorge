@@ -34,7 +34,7 @@ const TrustElements = () => {
 
   const partnerLogos = [
     { name: 'Morgan Stanley', file: 'morgan-stanley.svg' },
-    { name: 'Bit Capital Global', file: 'bit-capital-global.svg' },
+    { name: 'Bit Capital Global', file: 'bit-capital-global.png' },
     { name: 'Vanguard', file: 'vanguard.svg' },
     { name: 'Janus Henderson', file: 'janus-henderson.svg' },
     { name: 'Fidelity', file: 'fidelity.svg' },
