@@ -38,6 +38,7 @@ const TrustElements = () => {
     { name: 'Vanguard', file: 'vanguard.svg' },
     { name: 'Janus Henderson', file: 'janus-henderson.svg' },
     { name: 'Fidelity', file: 'fidelity.svg' },
+    { name: 'Xtrackers', file: 'xtrackers-dws.png' },
   ]
 
   return (
@@ -130,7 +131,7 @@ const TrustElements = () => {
           </h3>
 
           <motion.div
-            className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center"
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
