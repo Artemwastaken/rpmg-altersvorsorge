@@ -12,13 +12,13 @@ const ComparisonTable = () => {
       support: 'Nach 5 Jahren Betriebszugehörigkeit',
     },
     {
-      feature: 'Monatlicher Höchstbeitrag',
-      direct: '644 €',
+      feature: 'Monatl. Höchstbeitrag (2026)',
+      direct: '678 €',
       support: 'unbegrenzt',
     },
     {
-      feature: 'Jährlicher Höchstbeitrag',
-      direct: '7.728 €',
+      feature: 'Jährl. Höchstbeitrag (2026)',
+      direct: '8.136 €',
       support: 'unbegrenzt',
     },
     {
@@ -61,10 +61,10 @@ const ComparisonTable = () => {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-6">
-            § 3 Nr. 63 EStG vs. <span className="gradient-text">§ 4d EStG</span>
+            Direktversicherung vs. <span className="gradient-text">Unterstützungskasse</span>
           </h2>
           <p className="text-xl text-gray-600 leading-relaxed">
-            Beide Vorsorgewege bieten erhebliche Steuervorteile. Kombinieren Sie sie für eine Steuerersparnis von bis zu 100.000 € pro Jahr.
+            Beide Vorsorgewege bieten erhebliche Steuervorteile und sind kombinierbar
           </p>
         </motion.div>
 
@@ -80,17 +80,17 @@ const ComparisonTable = () => {
           <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
             {/* Table Header */}
             <div className="grid grid-cols-3 bg-primary-600 text-white">
-              <div className="p-3 md:p-6">
+              <div className="p-3 md:p-6 flex items-center justify-center">
                 <h3 className="font-bold text-xs md:text-lg text-white break-words">Kriterium</h3>
               </div>
-              <div className="p-3 md:p-6 bg-primary-700 border-l border-primary-500">
+              <div className="p-3 md:p-6 bg-primary-700 border-l border-primary-500 flex flex-col items-center justify-center">
                 <h3 className="font-bold text-xs md:text-lg text-white leading-tight">
                   <span className="md:hidden">Direkt-<br/>versicherung</span>
                   <span className="hidden md:inline">Direktversicherung</span>
                 </h3>
                 <p className="text-[10px] md:text-sm text-white/90 mt-1">§ 3 Nr. 63 EStG</p>
               </div>
-              <div className="p-3 md:p-6 bg-primary-800 border-l border-primary-600">
+              <div className="p-3 md:p-6 bg-primary-800 border-l border-primary-600 flex flex-col items-center justify-center">
                 <h3 className="font-bold text-xs md:text-lg text-white leading-tight">
                   <span className="md:hidden">Unterstützungs-<br/>kasse</span>
                   <span className="hidden md:inline">Unterstützungskasse</span>

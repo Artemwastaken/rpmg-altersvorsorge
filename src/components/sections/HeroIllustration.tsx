@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import HeroSavingsTowers from './HeroSavingsTowers'
 import HeroTrustCard from './HeroTrustCard'
-import HeroLegalCard from './HeroLegalCard'
 import HeroOutcomeCard from './HeroOutcomeCard'
 
 const ROTATION_INTERVAL = 5000
@@ -17,8 +16,7 @@ const HeroIllustration = () => {
 
   const cards = [
     { component: HeroSavingsTowers, key: 'towers' },
-    { component: HeroTrustCard, key: 'trust' },
-    { component: HeroLegalCard, key: 'legal' },
+    { component: HeroTrustCard, key: 'trust-security' },
     { component: HeroOutcomeCard, key: 'outcome' },
   ]
 

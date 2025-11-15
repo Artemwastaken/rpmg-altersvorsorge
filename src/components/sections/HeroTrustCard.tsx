@@ -1,17 +1,11 @@
 'use client'
 
 import React from 'react'
-import { Users, Star, Award, Handshake } from 'lucide-react'
+import { Users, Shield, Award, Handshake, Building2 } from 'lucide-react'
 import HeroCarouselCard from './HeroCarouselCard'
 
 const HeroTrustCard = () => {
   const metrics = [
-    {
-      icon: Star,
-      value: '4,9 / 5',
-      label: 'Mandantenrating',
-      detail: 'Höchste Zufriedenheit',
-    },
     {
       icon: Award,
       value: '10+',
@@ -26,9 +20,21 @@ const HeroTrustCard = () => {
     },
     {
       icon: Users,
-      value: '400+',
-      label: 'Mandate',
-      detail: 'Aktive Geschäftsführer',
+      value: '1.500+',
+      label: 'Kunden',
+      detail: 'Vertrauen uns',
+    },
+    {
+      icon: Building2,
+      value: 'Staatlich',
+      label: 'überwacht',
+      detail: 'Gesetzliche Sicherheit',
+    },
+    {
+      icon: Shield,
+      value: 'Insolvenz',
+      label: 'sicher',
+      detail: 'Geschütztes Privatvermögen',
     },
   ]
 
@@ -36,50 +42,67 @@ const HeroTrustCard = () => {
     <HeroCarouselCard>
       <div className="flex flex-col gap-4 h-full">
         <div className="text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-500">Vertrauen</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-500">Vertrauen & Sicherheit</p>
           <h3 className="mt-2 text-2xl md:text-3xl font-semibold text-primary-950 leading-tight">
-            Vertraut von Deutschlands erfolgreichsten Unternehmern
+            Erfahrung. Vertrauen. Sicherheit.
           </h3>
           <p className="mt-2 text-sm text-primary-700">
-            Erfolgreiche Geschäftsführer in ganz Deutschland setzen auf RPMG
+            Seit über einem Jahrzehnt bewährte Expertise für Ihre Altersvorsorge
           </p>
         </div>
 
         <div className="flex flex-1 flex-col items-center justify-center py-4">
-          {/* Supporting Metrics - 2x2 Grid */}
-          <div className="grid w-full max-w-xl gap-4 grid-cols-2">
-            {metrics.map((metric, index) => (
-              <div key={index} className="flex flex-col items-center gap-3 text-center">
-                <div className="relative">
-                  <div className="absolute inset-0 bg-primary-200 rounded-full blur-xl opacity-40" />
-                  <div className="relative flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-primary-50 to-white border-2 border-primary-200 shadow-md">
-                    <metric.icon className="h-7 w-7 text-primary-600" />
+          {/* 5 Key Points Grid - First 3 in top row, last 2 centered in bottom */}
+          <div className="w-full max-w-xl space-y-4">
+            {/* Top Row: 3 items */}
+            <div className="grid grid-cols-3 gap-3 md:gap-4">
+              {metrics.slice(0, 3).map((metric, index) => (
+                <div key={index} className="flex flex-col items-center gap-2 text-center">
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-primary-200 rounded-full blur-xl opacity-40" />
+                    <div className="relative flex h-14 w-14 md:h-16 md:w-16 items-center justify-center rounded-full bg-gradient-to-br from-primary-50 to-white border-2 border-primary-200 shadow-md">
+                      <metric.icon className="h-6 w-6 md:h-7 md:w-7 text-primary-600" />
+                    </div>
+                  </div>
+                  <div>
+                    <p className="text-sm md:text-base font-bold text-primary-900">
+                      {metric.value}
+                    </p>
+                    <p className="text-[11px] md:text-xs text-primary-700 font-medium">
+                      {metric.label}
+                    </p>
+                    <p className="text-[10px] md:text-[11px] text-primary-600 mt-0.5">
+                      {metric.detail}
+                    </p>
                   </div>
                 </div>
-                <div>
-                  <p className="text-base font-bold text-primary-900">
-                    {metric.value} <span className="text-sm text-primary-700 font-medium">{metric.label}</span>
-                  </p>
-                  <p className="text-xs text-primary-600 mt-1">
-                    {metric.detail}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Star Rating Display */}
-        <div className="pt-4 border-t border-primary-100 mt-auto">
-          <div className="flex items-center justify-center gap-2">
-            <div className="flex items-center gap-0.5">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="h-4 w-4 fill-accent-500 text-accent-500" />
               ))}
             </div>
-            <p className="text-xs text-primary-700 ml-1.5">
-              <span className="font-semibold text-primary-900">Ausgezeichnet bewertet</span> auf ProvenExpert & Trustpilot
-            </p>
+
+            {/* Bottom Row: 2 items centered */}
+            <div className="grid grid-cols-2 gap-4 md:gap-6 max-w-md mx-auto">
+              {metrics.slice(3, 5).map((metric, index) => (
+                <div key={index + 3} className="flex flex-col items-center gap-2 text-center">
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-primary-200 rounded-full blur-xl opacity-40" />
+                    <div className="relative flex h-14 w-14 md:h-16 md:w-16 items-center justify-center rounded-full bg-gradient-to-br from-primary-50 to-white border-2 border-primary-200 shadow-md">
+                      <metric.icon className="h-6 w-6 md:h-7 md:w-7 text-primary-600" />
+                    </div>
+                  </div>
+                  <div>
+                    <p className="text-sm md:text-base font-bold text-primary-900">
+                      {metric.value}
+                    </p>
+                    <p className="text-[11px] md:text-xs text-primary-700 font-medium">
+                      {metric.label}
+                    </p>
+                    <p className="text-[10px] md:text-[11px] text-primary-600 mt-0.5">
+                      {metric.detail}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

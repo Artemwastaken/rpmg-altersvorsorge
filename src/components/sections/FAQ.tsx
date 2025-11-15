@@ -9,36 +9,32 @@ const FAQ = () => {
 
   const faqs = [
     {
+      question: 'Wie läuft die kostenlose Erstberatung ab?',
+      answer: 'Nach Ihrer Terminbuchung erhalten Sie eine Bestätigung mit Zugangslink. Im 30–45-minütigen Gespräch erläutert einer unserer Spezialisten, wie sich das Konzept in Ihrem Fall umsetzen lässt – kostenlos und unverbindlich.',
+    },
+    {
       question: 'Wie wird das Kapital investiert?',
-      answer: 'typischerweise in intelligente ETF- und in Investmentfondsstrategien, um eine breite Streuung und attraktive Renditechancen zu erzielen.',
+      answer: 'In breit gestreute ETF- und Investmentfondsstrategien mit attraktiven Renditechancen.',
     },
     {
       question: 'Für wen eignet sich das Konzept?',
-      answer: 'Ideal für Geschäftsführer und Gesellschafter-Geschäftsführer von GmbHs oder UGs mit ausreichenden Gewinnen. Besonders lohnenswert ab 50.000 € Jahresgewinn. Um Ihnen eine optimale Beratung anbieten zu können, empfehlen wir eine Laufzeit von mindestens 12-15 Jahren bis zum Ruhestand. So können Sie das volle Potenzial der Steuervorteile ausschöpfen.',
-    },
-    {
-      question: 'Wie hoch ist die tatsächliche Steuerersparnis?',
-      answer: 'Diese Antwort ist sehr individuell. Bei einem Beispiel von 3.000 € monatlichem Aufwand und 42% Grenzsteuersatz sparen Sie 15.120 € jährlich.',
+      answer: 'Ideal für Geschäftsführer und Gesellschafter-Geschäftsführer mit ausreichenden Gewinnen. Empfohlene Laufzeit: 10–12 Jahre bis zum Ruhestand, um die Steuervorteile voll zu entfalten.',
     },
     {
       question: 'Wie sicher ist das Konzept?',
-      answer: 'Da wir uns hier im geregelten Rechtsrahmen bewegen brauchen Sie sich keine Sorgen zu machen. Das Konzept ist rechtlich verbindlich und Ihr Vermögen am Ende insolvenzgeschützt.',
+      answer: 'Rechtlich verbindlich, insolvenzsicher, im klar geregelten Rechtsrahmen.',
     },
     {
       question: 'Wie lange dauert die Einrichtung?',
-      answer: '4-6 Wochen nach Erstberatung',
+      answer: '1–2 Wochen nach Erstberatung (reduziert von vormals 4–6 Wochen).',
     },
     {
-      question: 'Handelt es sich bei der Beratung um eine Steuerberatung?',
-      answer: 'Nein, wir selbst sind ausdrücklich keine Steuerberatung. Unsere Konzepte und die Umsetzung kann in Koordination mit Ihrem Steuerberater erfolgen.',
+      question: 'Handelt es sich um eine Steuerberatung?',
+      answer: 'Nein, ausdrücklich keine Steuerberatung; Umsetzung in Koordination mit Ihrem Steuerberater möglich.',
     },
     {
-      question: 'Bieten Sie auch Beratungen vor Ort an?',
-      answer: 'Nein! Da wir deutschlandweit beraten liegt unser Fokus auf einer modernen onlinebasierten Beratung.',
-    },
-    {
-      question: 'Wie läuft die kostenlose Erstberatung ab?',
-      answer: 'Sobald Sie einen Termin zur kostenlosen Erstberatung buchen, bekommen Sie eine Bestätigung und einen Link zu Ihrem Onlinetermin. Im Termin wird Ihnen das Konzept erläutert. Einer unserer Spezialisten erklärt in rund 30-45 Minuten, ob und wie sich das Konzept in Ihrem Fall umsetzen lässt. Kostenlos und unverbindlich.',
+      question: 'Bieten Sie Beratungen vor Ort an?',
+      answer: 'Ja, im Umkreis von 75 km um Köln ist eine persönliche Geschäftsführerberatung möglich; empfohlen wird aus Zeiteffizienzgründen der Online-Termin.',
     },
   ]
 

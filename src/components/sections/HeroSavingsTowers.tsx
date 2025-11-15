@@ -21,7 +21,7 @@ const Tower = ({
   }>
 }) => (
   <div className="flex flex-col items-center gap-2 text-center">
-    <div className="flex flex-col items-center gap-1">
+    <div className="flex flex-col items-center gap-0.5">
       <span className="text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.2em] md:tracking-[0.3em] text-primary-500">{label}</span>
     </div>
     <div className="relative flex h-48 md:h-56 w-32 md:w-40 flex-col justify-end overflow-hidden rounded-2xl md:rounded-3xl border border-white/60 bg-white/85 shadow-[0_28px_70px_-40px_rgba(15,23,42,0.65)]">
@@ -32,7 +32,7 @@ const Tower = ({
           className="flex flex-col items-center justify-center px-2 md:px-3.5 text-center"
         >
           <p className="text-[10px] md:text-xs font-semibold text-primary-900">{segment.title}</p>
-          <p className="text-[9px] md:text-[11px] text-primary-700">{segment.copy}</p>
+          <p className={`text-sm md:text-lg font-bold ${segment.copy.startsWith('-') ? 'text-red-700' : 'text-green-700'}`}>{segment.copy}</p>
         </div>
       ))}
     </div>
@@ -77,8 +77,10 @@ const HeroSavingsTowers = () => {
 
             <div className="hidden md:flex flex-col items-center gap-2 text-center text-primary-600">
               <span className="h-12 w-px bg-gradient-to-b from-primary-200 via-primary-300 to-primary-200" aria-hidden="true" />
-              <span className="text-[11px] font-semibold uppercase tracking-[0.35em] text-primary-500">Vorteil</span>
-              <span className="text-sm font-semibold text-green-600">+€45.000</span>
+              <div className="flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-lg bg-gradient-to-br from-green-50 to-green-100 border border-green-200 shadow-sm">
+                <span className="text-[10px] font-semibold uppercase tracking-[0.35em] text-green-700">Vorteil</span>
+                <span className="text-lg font-bold text-green-700">+€45.000</span>
+              </div>
               <span className="h-12 w-px bg-gradient-to-b from-primary-200 via-primary-300 to-primary-200" aria-hidden="true" />
             </div>
 

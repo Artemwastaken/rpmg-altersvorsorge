@@ -19,27 +19,27 @@ const BenefitsGrid = () => {
   const benefits = [
     {
       icon: TrendingUp,
-      title: 'Profitieren Sie z.B. von 15.120 € Steuerersparnis jährlich',
-      description: 'Bei 42% Grenzsteuersatz und 3.000 € monatlich.',
-      highlight: 'Unternehmenssteuern sparen',
+      title: 'Bis zu 15.120 € Steuerersparnis jährlich',
+      description: 'Beispiel: 42 % Grenzsteuersatz & 3.000 € mtl.',
+      highlights: ['Maximale Ersparnis', 'Unternehmenssteuern sparen'],
     },
     {
       icon: PiggyBank,
       title: '100 % Betriebsausgabe – mindert Ihren Gewinn',
-      description: 'Vollständig abzugsfähig, senkt steuerpflichtigen Gewinn.',
-      highlight: 'Privatvermögen aufbauen mit Ihrem Gewinn',
+      description: 'Voll abzugsfähig, senkt steuerpflichtigen Gewinn.',
+      highlights: ['100 % Abzug', 'Privatvermögen aufbauen mit Ihrem Gewinn'],
     },
     {
       icon: Shield,
       title: 'Insolvenzsicher & rechtlich abgesichert',
-      description: 'privater Wohlstand auch in Krisen gesichert',
-      highlight: 'durch staatliche Vorgaben geschützt',
+      description: 'Durch gesetzliche Vorgaben geschützt.',
+      highlights: ['Privater Wohlstand auch in Krisen gesichert'],
     },
     {
       icon: Users,
       title: 'Auch für Ehepartner & Familie nutzbar',
-      description: 'Zusätzliche Steuervorteile für die ganze Familie.',
-      highlight: 'Familienvermögen erhöhen',
+      description: 'Zusätzliche Steuervorteile für die Familie.',
+      highlights: ['Familie absichern', 'Familienvermögen erhöhen'],
     },
   ]
 
@@ -61,7 +61,7 @@ const BenefitsGrid = () => {
           </h2>
           <p className="text-xl text-gray-600 leading-relaxed">
             Nutzen Sie die gesetzlichen Möglichkeiten optimal aus und profitieren Sie von
-            erheblichen Steuervorteilen für Ihre Altersvorsorge.
+            erheblichen Steuervorteilen für Ihr Vermögen.
           </p>
         </motion.div>
 
@@ -92,12 +92,16 @@ const BenefitsGrid = () => {
                   {benefit.description}
                 </p>
 
-                {/* Highlight Badge */}
-                <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary-50 rounded-full">
-                  <div className="w-2 h-2 bg-primary-600 rounded-full animate-pulse" />
-                  <span className="text-sm font-semibold text-primary-700">
-                    {benefit.highlight}
-                  </span>
+                {/* Highlight Badges */}
+                <div className="flex flex-wrap gap-2">
+                  {benefit.highlights.map((highlight, idx) => (
+                    <div key={idx} className="inline-flex items-center gap-2 px-3 py-1 bg-primary-50 rounded-full">
+                      <div className="w-2 h-2 bg-primary-600 rounded-full animate-pulse" />
+                      <span className="text-sm font-semibold text-primary-700">
+                        {highlight}
+                      </span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </motion.div>

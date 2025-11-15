@@ -15,6 +15,11 @@ const SavingsCalculator = () => {
     () => annualContribution * (taxRate / 100),
     [annualContribution, taxRate]
   )
+  const totalContributions = useMemo(() => annualContribution * years, [annualContribution, years])
+  const totalTaxSavings = useMemo(
+    () => totalContributions * (taxRate / 100),
+    [totalContributions, taxRate]
+  )
 
   const futureValue = useMemo(() => {
     const monthlyReturn = 0.07 / 12
@@ -25,6 +30,16 @@ const SavingsCalculator = () => {
       (1 + monthlyReturn)
     )
   }, [monthlyAmount, years])
+
+  const interestEarnings = useMemo(
+    () => futureValue - totalContributions,
+    [futureValue, totalContributions]
+  )
+
+  const endkapital = useMemo(
+    () => totalContributions + totalTaxSavings + interestEarnings,
+    [totalContributions, totalTaxSavings, interestEarnings]
+  )
 
   const roiPercent = useMemo(() => {
     if (!annualContribution) return 0
@@ -41,6 +56,13 @@ const SavingsCalculator = () => {
     }).format(value)
 
   const getSnappedValue = (raw: number) => {
+    const snapThreshold = 30
+
+    // Magnetic snap to tick marks
+    if (Math.abs(raw - 339) <= snapThreshold) return 339
+    if (Math.abs(raw - 678) <= snapThreshold) return 678
+
+    // Original snapping logic
     if (raw <= 500) return Math.round(raw / 25) * 25
     if (raw <= 1000) return Math.round(raw / 50) * 50
     return Math.round(raw / 100) * 100
@@ -51,8 +73,8 @@ const SavingsCalculator = () => {
   }
 
   const tickMarks = [
-    { value: 292, label: '292 €', description: 'SV-frei', accent: true },
-    { value: 644, label: '644 €', description: 'Max. steuerfrei', accent: true }
+    { value: 339, label: '339 €', description: 'SV-frei', accent: true },
+    { value: 678, label: '678 €', description: 'Max. steuerfrei', accent: true }
   ]
 
   const yearTickMarks = [
@@ -61,28 +83,40 @@ const SavingsCalculator = () => {
     { value: 35, label: 'Lang', description: '35 Jahre' }
   ]
 
+  const totalMv = useMotionValue(totalContributions)
+  const totalTaxMv = useMotionValue(totalTaxSavings)
+  const interestMv = useMotionValue(interestEarnings)
+  const endkapitalMv = useMotionValue(endkapital)
   const monthlyMv = useMotionValue(annualTaxSavings)
   const futureMv = useMotionValue(futureValue)
   const roiMv = useMotionValue(roiPercent)
 
+  const formattedTotal = useTransform(totalMv, latest => formatCurrency(latest))
+  const formattedTotalTax = useTransform(totalTaxMv, latest => formatCurrency(latest))
+  const formattedInterest = useTransform(interestMv, latest => formatCurrency(latest))
+  const formattedEndkapital = useTransform(endkapitalMv, latest => formatCurrency(latest))
   const formattedTaxSavings = useTransform(monthlyMv, latest => formatCurrency(latest))
   const formattedFuture = useTransform(futureMv, latest => formatCurrency(latest))
   const formattedRoi = useTransform(roiMv, latest => `${latest.toFixed(1).replace('.', ',')} %`)
 
   useEffect(() => {
     const controls = [
+      animate(totalMv, totalContributions, { duration: 0.5, ease: 'easeOut' }),
+      animate(totalTaxMv, totalTaxSavings, { duration: 0.5, ease: 'easeOut' }),
+      animate(interestMv, interestEarnings, { duration: 0.5, ease: 'easeOut' }),
+      animate(endkapitalMv, endkapital, { duration: 0.5, ease: 'easeOut' }),
       animate(monthlyMv, annualTaxSavings, { duration: 0.5, ease: 'easeOut' }),
       animate(futureMv, futureValue, { duration: 0.5, ease: 'easeOut' }),
       animate(roiMv, roiPercent, { duration: 0.5, ease: 'easeOut' })
     ]
     return () => controls.forEach(c => c.stop())
-  }, [annualTaxSavings, futureValue, roiPercent, monthlyMv, futureMv, roiMv])
+  }, [totalContributions, totalTaxSavings, interestEarnings, endkapital, annualTaxSavings, futureValue, roiPercent, totalMv, totalTaxMv, interestMv, endkapitalMv, monthlyMv, futureMv, roiMv])
 
   const taxRatePresets = [
     { label: '30%', value: 30, description: 'Kleine GmbH' },
     { label: '35%', value: 35, description: 'Wachstum' },
     { label: '42%', value: 42, description: 'Top-Satz' },
-    { label: '45%', value: 45, description: 'Spitzensteuersatz' }
+    { label: '45%', value: 45, description: 'Spitzen-Satz' }
   ]
 
   return (
@@ -234,7 +268,7 @@ const SavingsCalculator = () => {
                     <div className="text-sm">
                       <p className="font-semibold">Hinweis</p>
                       <p className="opacity-80">
-                        Berechnung basiert auf 7 % Nettorendite. Individualisierung im Gespräch.
+                        Die Berechnung dient der Orientierung und berücksichtigt keine individuellen Steuerdaten. Eine verbindliche Berechnung erfolgt im persönlichen Beratungsgespräch.
                       </p>
                     </div>
                   </div>
@@ -242,12 +276,10 @@ const SavingsCalculator = () => {
               </div>
 
               <div className="relative bg-gradient-to-br from-primary-700 via-primary-600 to-primary-700 text-white p-8 lg:p-12 space-y-8">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.15),_rgba(255,255,255,0))] pointer-events-none" />
-                <div className="relative space-y-2">
-                  <h3 className="text-2xl font-bold text-white">Ihre Ergebnisse</h3>
-                  <p className="text-white/70 text-sm">
-                    Zahlen aktualisieren sich, sobald Sie Regler oder Presets ändern.
-                  </p>
+                <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+                  <div>
+                    <h3 className="text-2xl font-bold text-white">Ihre Ergebnisse</h3>
+                  </div>
                 </div>
 
                 <div className="relative grid gap-6">
@@ -262,14 +294,14 @@ const SavingsCalculator = () => {
                         <PiggyBank className="w-6 h-6" />
                       </div>
                       <div>
-                        <p className="text-xs uppercase tracking-wider text-white/70">Gesparte Steuern p.a.</p>
-                        <motion.p className="text-3xl font-bold" key={annualTaxSavings}>
-                          {formattedTaxSavings}
+                        <p className="text-xs uppercase tracking-wider text-white/70">Gesamte Einzahlungen</p>
+                        <motion.p className="text-3xl font-bold" key={totalContributions}>
+                          {formattedTotal}
                         </motion.p>
                       </div>
                     </div>
                     <p className="text-sm text-white/70">
-                      {taxRate}% auf {formatCurrency(annualContribution)} Jahresbeitrag.
+                      Monatliche Einzahlungen über {years} Jahre
                     </p>
                   </motion.div>
 
@@ -281,17 +313,17 @@ const SavingsCalculator = () => {
                   >
                     <div className="flex items-center gap-3 mb-3">
                       <div className="w-12 h-12 rounded-full bg-white/15 flex items-center justify-center">
-                        <TrendingUp className="w-6 h-6" />
+                        <Calculator className="w-6 h-6" />
                       </div>
                       <div>
-                        <p className="text-xs uppercase tracking-wider text-white/70">Vermögen nach {years} Jahren</p>
-                        <motion.p className="text-3xl font-bold" key={futureValue}>
-                          {formattedFuture}
+                        <p className="text-xs uppercase tracking-wider text-white/70">Steuerersparnis auf Einzahlungen</p>
+                        <motion.p className="text-3xl font-bold" key={totalTaxSavings}>
+                          {formattedTotalTax}
                         </motion.p>
                       </div>
                     </div>
                     <p className="text-sm text-white/70">
-                      bei monatlichem Sparen und 7 % Rendite.
+                      {taxRate}% Grenzsteuersatz über {years} Jahre
                     </p>
                   </motion.div>
 
@@ -303,17 +335,39 @@ const SavingsCalculator = () => {
                   >
                     <div className="flex items-center gap-3 mb-3">
                       <div className="w-12 h-12 rounded-full bg-white/15 flex items-center justify-center">
-                        <Briefcase className="w-6 h-6" />
+                        <TrendingUp className="w-6 h-6" />
                       </div>
                       <div>
-                        <p className="text-xs uppercase tracking-wider text-white/70">Renditevorsprung</p>
-                        <motion.p className="text-3xl font-bold" key={roiPercent}>
-                          {formattedRoi}
+                        <p className="text-xs uppercase tracking-wider text-white/70">Zinsertrag</p>
+                        <motion.p className="text-3xl font-bold" key={interestEarnings}>
+                          {formattedInterest}
                         </motion.p>
                       </div>
                     </div>
                     <p className="text-sm text-white/70">
-                      Verglichen mit einer klassischen Anlage nach Steuern.
+                      Basierend auf 7% jährlicher Verzinsung
+                    </p>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: 0.4 }}
+                    className="rounded-3xl bg-white/15 border border-white/20 backdrop-blur-md p-6 shadow-lg"
+                  >
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-12 h-12 rounded-full bg-white/15 flex items-center justify-center">
+                        <TrendingUp className="w-6 h-6" />
+                      </div>
+                      <div>
+                        <p className="text-xs uppercase tracking-wider text-white/70">Endkapital</p>
+                        <motion.p className="text-3xl font-bold" key={endkapital}>
+                          {formattedEndkapital}
+                        </motion.p>
+                      </div>
+                    </div>
+                    <p className="text-sm text-white/70">
+                      Einzahlungen + Steuerersparnis + Zinsen
                     </p>
                   </motion.div>
                 </div>
@@ -326,6 +380,8 @@ const SavingsCalculator = () => {
                   Detaillierte Analyse anfordern
                   <ChevronRight className="w-4 h-4" />
                 </motion.button>
+
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.15),_rgba(255,255,255,0))] pointer-events-none -z-10" />
               </div>
             </div>
           </div>
