@@ -37,8 +37,8 @@ const SavingsCalculator = () => {
   )
 
   const endkapital = useMemo(
-    () => totalContributions + totalTaxSavings + interestEarnings,
-    [totalContributions, totalTaxSavings, interestEarnings]
+    () => totalContributions + interestEarnings,
+    [totalContributions, interestEarnings]
   )
 
   const roiPercent = useMemo(() => {
@@ -367,7 +367,7 @@ const SavingsCalculator = () => {
                       </div>
                     </div>
                     <p className="text-sm text-white/70">
-                      Einzahlungen + Steuerersparnis + Zinsen
+                      Einzahlungen + Zinsen
                     </p>
                   </motion.div>
                 </div>

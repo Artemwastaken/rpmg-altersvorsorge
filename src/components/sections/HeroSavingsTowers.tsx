@@ -32,7 +32,7 @@ const Tower = ({
           className="flex flex-col items-center justify-center px-2 md:px-3.5 text-center"
         >
           <p className="text-[10px] md:text-xs font-semibold text-primary-900">{segment.title}</p>
-          <p className={`text-sm md:text-lg font-bold ${segment.copy.startsWith('-') ? 'text-red-700' : 'text-green-700'}`}>{segment.copy}</p>
+          <p className={`text-sm md:text-lg font-bold ${segment.copy.startsWith('-') ? 'text-red-900' : 'text-emerald-800'}`}>{segment.copy}</p>
         </div>
       ))}
     </div>
@@ -49,7 +49,7 @@ const HeroSavingsTowers = () => {
             €100.000 Gewinn: Was kommt wirklich bei Ihnen an?
           </h3>
           <p className="mt-2 text-sm text-primary-700">
-            Sehen Sie den direkten Vergleich zwischen Normalbesteuerung und RPMG-Optimierung
+            Sehen Sie den direkten Vergleich zwischen Normalbesteuerung und RP&MG-Optimierung
           </p>
         </div>
 
@@ -77,15 +77,15 @@ const HeroSavingsTowers = () => {
 
             <div className="hidden md:flex flex-col items-center gap-2 text-center text-primary-600">
               <span className="h-12 w-px bg-gradient-to-b from-primary-200 via-primary-300 to-primary-200" aria-hidden="true" />
-              <div className="flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-lg bg-gradient-to-br from-green-50 to-green-100 border border-green-200 shadow-sm">
-                <span className="text-[10px] font-semibold uppercase tracking-[0.35em] text-green-700">Vorteil</span>
-                <span className="text-lg font-bold text-green-700">+€45.000</span>
+              <div className="flex flex-col items-center gap-0.5">
+                <span className="text-[10px] font-semibold uppercase tracking-[0.35em] text-emerald-800">Vorteil</span>
+                <span className="text-lg font-bold text-emerald-900">+€45.000</span>
               </div>
               <span className="h-12 w-px bg-gradient-to-b from-primary-200 via-primary-300 to-primary-200" aria-hidden="true" />
             </div>
 
             <Tower
-              label="RPMG-Optimiert"
+              label="RP&MG-Optimiert"
               total="€100.000 wirkt für Sie"
               highlight="100 % steuerfrei investierbar"
               segments={[
@@ -104,11 +104,11 @@ const HeroSavingsTowers = () => {
           {/* Row 1 */}
           <div className="grid grid-cols-2 gap-1">
             <div className="flex items-start gap-1">
-              <XCircle className="h-3 w-3 md:h-4 md:w-4 text-red-500 mt-0.5 flex-shrink-0" />
+              <XCircle className="h-3 w-3 md:h-4 md:w-4 text-red-900 mt-0.5 flex-shrink-0" />
               <p className="text-[10px] md:text-xs text-primary-700">€45.000 ans Finanzamt</p>
             </div>
             <div className="flex items-start gap-1">
-              <CheckCircle className="h-3 w-3 md:h-4 md:w-4 text-green-600 mt-0.5 flex-shrink-0" />
+              <CheckCircle className="h-3 w-3 md:h-4 md:w-4 text-emerald-800 mt-0.5 flex-shrink-0" />
               <p className="text-[10px] md:text-xs text-primary-700">€100.000 steuerfrei investiert</p>
             </div>
           </div>
@@ -116,11 +116,11 @@ const HeroSavingsTowers = () => {
           {/* Row 2 */}
           <div className="grid grid-cols-2 gap-1">
             <div className="flex items-start gap-1">
-              <XCircle className="h-3 w-3 md:h-4 md:w-4 text-red-500 mt-0.5 flex-shrink-0" />
+              <XCircle className="h-3 w-3 md:h-4 md:w-4 text-red-900 mt-0.5 flex-shrink-0" />
               <p className="text-[10px] md:text-xs text-primary-700">Jedes Jahr aufs Neue</p>
             </div>
             <div className="flex items-start gap-1">
-              <CheckCircle className="h-3 w-3 md:h-4 md:w-4 text-green-600 mt-0.5 flex-shrink-0" />
+              <CheckCircle className="h-3 w-3 md:h-4 md:w-4 text-emerald-800 mt-0.5 flex-shrink-0" />
               <p className="text-[10px] md:text-xs text-primary-700">Sofort Renditechancen (Ø 7%)</p>
             </div>
           </div>
@@ -128,11 +128,11 @@ const HeroSavingsTowers = () => {
           {/* Row 3 */}
           <div className="grid grid-cols-2 gap-1">
             <div className="flex items-start gap-1">
-              <XCircle className="h-3 w-3 md:h-4 md:w-4 text-red-500 mt-0.5 flex-shrink-0" />
+              <XCircle className="h-3 w-3 md:h-4 md:w-4 text-red-900 mt-0.5 flex-shrink-0" />
               <p className="text-[10px] md:text-xs text-primary-700">Nur €55.000 bleiben übrig</p>
             </div>
             <div className="flex items-start gap-1">
-              <CheckCircle className="h-3 w-3 md:h-4 md:w-4 text-green-600 mt-0.5 flex-shrink-0" />
+              <CheckCircle className="h-3 w-3 md:h-4 md:w-4 text-emerald-800 mt-0.5 flex-shrink-0" />
               <p className="text-[10px] md:text-xs text-primary-700">Ihr volles Kapital arbeitet</p>
             </div>
           </div>

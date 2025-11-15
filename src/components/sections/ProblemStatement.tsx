@@ -56,8 +56,8 @@ const ProblemStatement = () => {
               key={index}
               variants={{ hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } }}
             >
-              <div className="bg-white rounded-xl p-6 shadow-md h-full border border-gray-100">
-                <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-3">
+              <div className="bg-white rounded-xl p-6 shadow-md h-full border border-gray-100 text-center">
+                <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-3 mx-auto">
                   <challenge.icon className="w-6 h-6 text-primary-600" />
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">

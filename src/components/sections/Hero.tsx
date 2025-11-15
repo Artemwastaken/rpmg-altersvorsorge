@@ -56,7 +56,7 @@ const Hero = () => {
             <div className="inline-flex items-center gap-3">
               <Shield className="w-6 h-6 text-primary-500" />
               <h2 className="text-2xl lg:text-3xl font-bold text-primary-800 tracking-wide">
-                RPMG UNTERNEHMERPLAN
+                RP&MG UNTERNEHMERPLAN
               </h2>
             </div>
             <div className="w-full h-px bg-gradient-to-r from-primary-300 via-primary-400 to-transparent" />
@@ -67,17 +67,16 @@ const Hero = () => {
               Für Unternehmer, Geschäftsführer & Vorstände
             </p>
             <h1 className="text-4xl lg:text-6xl font-bold text-primary-950 leading-tight">
-              Steuern sparen & Privatvermögen aufbauen – 100.000€ Gewinn = 100.000€ für den <span className="gradient-text">Vermögensaufbau</span>
+              Betriebsvermögen in <span className="gradient-text">Privatvermögen</span> umwandeln
             </h1>
 
             <div className="space-y-3">
               <p className="text-lg lg:text-xl text-primary-700 leading-relaxed">
-                Nutzen Sie Ihre GmbH für private Vermögensbildung – rechtssicher und steueroptimiert
+                Mit Ihrer GmbH Steuern sparen & Privatvermögen aufbauen
               </p>
               <div className="flex items-center gap-2 text-base lg:text-lg text-primary-800">
-                <ArrowRight className="w-5 h-5 text-primary-500 flex-shrink-0" />
                 <span>
-                  <strong className="text-primary-600">0 % Steuerlast</strong> • <strong className="text-primary-600"><span className="text-[0.85em]">Ø</span> 7 % Rendite</strong> • <strong className="text-primary-600">Rechtssicher</strong>
+                  •<strong className="text-primary-600">steueroptimiert</strong> •<strong className="text-primary-600">rechtssicher</strong>
                 </span>
               </div>
             </div>
