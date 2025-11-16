@@ -53,22 +53,22 @@ const HeroTrustCard = () => {
 
         <div className="flex flex-1 flex-col items-center justify-center py-4">
           {/* 5 Key Points Grid - First 3 in top row, last 2 centered in bottom */}
-          <div className="w-full max-w-xl space-y-4">
+          <div className="w-full max-w-xl space-y-8 md:space-y-10">
             {/* Top Row: 3 items */}
-            <div className="grid grid-cols-3 gap-3 md:gap-4">
+            <div className="grid grid-cols-3 gap-4 md:gap-8">
               {metrics.slice(0, 3).map((metric, index) => (
-                <div key={index} className="flex flex-col items-center gap-2 text-center">
+                <div key={index} className="flex flex-col items-center gap-3 md:gap-4 text-center">
                   <div className="relative">
                     <div className="absolute inset-0 bg-primary-200 rounded-full blur-xl opacity-40" />
-                    <div className="relative flex h-14 w-14 md:h-16 md:w-16 items-center justify-center rounded-full bg-gradient-to-br from-primary-50 to-white border-2 border-primary-200 shadow-md">
-                      <metric.icon className="h-6 w-6 md:h-7 md:w-7 text-primary-600" />
+                    <div className="relative flex h-14 w-14 md:h-18 md:w-18 items-center justify-center rounded-full bg-gradient-to-br from-primary-50 to-white border-2 border-primary-200 shadow-md">
+                      <metric.icon className="h-6 w-6 md:h-8 md:w-8 text-primary-600" />
                     </div>
                   </div>
                   <div>
                     <p className="text-sm md:text-base font-bold text-primary-900">
                       {metric.value}
                     </p>
-                    <p className="text-[11px] md:text-xs text-primary-700 font-medium">
+                    <p className="text-[11px] md:text-xs text-primary-700 font-bold">
                       {metric.label}
                     </p>
                     <p className="text-[10px] md:text-[11px] text-primary-600 mt-0.5">
@@ -80,20 +80,20 @@ const HeroTrustCard = () => {
             </div>
 
             {/* Bottom Row: 2 items centered */}
-            <div className="grid grid-cols-2 gap-4 md:gap-6 max-w-md mx-auto">
+            <div className="grid grid-cols-2 gap-6 md:gap-10 max-w-md mx-auto">
               {metrics.slice(3, 5).map((metric, index) => (
-                <div key={index + 3} className="flex flex-col items-center gap-2 text-center">
+                <div key={index + 3} className="flex flex-col items-center gap-3 md:gap-4 text-center">
                   <div className="relative">
                     <div className="absolute inset-0 bg-primary-200 rounded-full blur-xl opacity-40" />
-                    <div className="relative flex h-14 w-14 md:h-16 md:w-16 items-center justify-center rounded-full bg-gradient-to-br from-primary-50 to-white border-2 border-primary-200 shadow-md">
-                      <metric.icon className="h-6 w-6 md:h-7 md:w-7 text-primary-600" />
+                    <div className="relative flex h-14 w-14 md:h-18 md:w-18 items-center justify-center rounded-full bg-gradient-to-br from-primary-50 to-white border-2 border-primary-200 shadow-md">
+                      <metric.icon className="h-6 w-6 md:h-8 md:w-8 text-primary-600" />
                     </div>
                   </div>
                   <div>
                     <p className="text-sm md:text-base font-bold text-primary-900">
                       {metric.value}
                     </p>
-                    <p className="text-[11px] md:text-xs text-primary-700 font-medium">
+                    <p className="text-[11px] md:text-xs text-primary-700 font-bold">
                       {metric.label}
                     </p>
                     <p className="text-[10px] md:text-[11px] text-primary-600 mt-0.5">
