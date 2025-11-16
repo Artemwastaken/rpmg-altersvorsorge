@@ -2,9 +2,9 @@
 
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import HeroSavingsTowers from './HeroSavingsTowers'
-import HeroTrustCard from './HeroTrustCard'
-import HeroOutcomeCard from './HeroOutcomeCard'
+import Card1Vergleich from './HeroSavingsTowers'
+import Card2Vertrauen from './HeroTrustCard'
+import Card3Kapital from './HeroOutcomeCard'
 
 const ROTATION_INTERVAL = 5000
 
@@ -14,10 +14,11 @@ const HeroIllustration = () => {
   const [progress, setProgress] = useState(0)
   const [dragDirection, setDragDirection] = useState(0)
 
+  // Fixed order: Vergleich → Vertrauen → Kapitalwachstum
   const cards = [
-    { component: HeroSavingsTowers, key: 'towers' },
-    { component: HeroTrustCard, key: 'trust-security' },
-    { component: HeroOutcomeCard, key: 'outcome' },
+    { component: Card1Vergleich, key: 'vergleich' },
+    { component: Card2Vertrauen, key: 'vertrauen' },
+    { component: Card3Kapital, key: 'kapital' },
   ]
 
   useEffect(() => {
@@ -27,6 +28,7 @@ const HeroIllustration = () => {
     const progressInterval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
+          setDragDirection(1)
           setCurrentCard((prevCard) => (prevCard + 1) % cards.length)
           return 0
         }
@@ -44,29 +46,10 @@ const HeroIllustration = () => {
   const CurrentCardComponent = cards[currentCard].component
 
   const goToCard = (index: number) => {
+    const direction = index > currentCard ? 1 : index < currentCard ? -1 : 0
+    setDragDirection(direction)
     setCurrentCard(index)
     setProgress(0)
-  }
-
-  const goToNextCard = () => {
-    setDragDirection(1)
-    setCurrentCard((prev) => (prev + 1) % cards.length)
-    setProgress(0)
-  }
-
-  const goToPrevCard = () => {
-    setDragDirection(-1)
-    setCurrentCard((prev) => (prev - 1 + cards.length) % cards.length)
-    setProgress(0)
-  }
-
-  const handleDragEnd = (_event: any, info: any) => {
-    const swipeThreshold = 50
-    if (info.offset.x > swipeThreshold) {
-      goToPrevCard()
-    } else if (info.offset.x < -swipeThreshold) {
-      goToNextCard()
-    }
   }
 
   return (
@@ -80,15 +63,10 @@ const HeroIllustration = () => {
           <motion.div
             key={cards[currentCard].key}
             custom={dragDirection}
-            initial={{ opacity: 0, x: dragDirection * 100, scale: 0.96 }}
+            initial={{ opacity: 0, x: -dragDirection * 100, scale: 0.96 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
-            exit={{ opacity: 0, x: dragDirection * -100, scale: 0.96 }}
+            exit={{ opacity: 0, x: dragDirection * 100, scale: 0.96 }}
             transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-            drag="x"
-            dragConstraints={{ left: 0, right: 0 }}
-            dragElastic={0.3}
-            onDragEnd={handleDragEnd}
-            className="cursor-grab active:cursor-grabbing"
           >
             <CurrentCardComponent />
           </motion.div>
