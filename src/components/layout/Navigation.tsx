@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Menu, X, ChevronRight } from 'lucide-react'
@@ -9,18 +9,51 @@ import { cn } from '@/utils/cn'
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false)
-  const [showTrustBanner, setShowTrustBanner] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [hasScrolledPastThreshold, setHasScrolledPastThreshold] = useState(false)
+  const [isBannerVisible, setIsBannerVisible] = useState(false)
+  const scrollTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
-      // Show trust banner after scrolling past hero section (approximately 200px)
-      setShowTrustBanner(window.scrollY > 200)
+    function handleScroll() {
+      const y = window.scrollY
+      const pastThreshold = y > 200
+
+      // Keep existing navbar background logic
+      setIsScrolled(y > 10)
+
+      // Track whether user is past threshold
+      setHasScrolledPastThreshold(pastThreshold)
+
+      if (!pastThreshold) {
+        // If user goes back up near the top → hide banner immediately
+        setIsBannerVisible(false)
+        if (scrollTimerRef.current) {
+          clearTimeout(scrollTimerRef.current)
+        }
+        return
+      }
+
+      // User is scrolling while past threshold → show banner immediately
+      setIsBannerVisible(true)
+
+      // Reset 2-second hide timer
+      if (scrollTimerRef.current) {
+        clearTimeout(scrollTimerRef.current)
+      }
+      scrollTimerRef.current = setTimeout(() => {
+        setIsBannerVisible(false)
+      }, 2000)
     }
 
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      if (scrollTimerRef.current) {
+        clearTimeout(scrollTimerRef.current)
+      }
+    }
   }, [])
 
   const navItems = [
@@ -56,11 +89,11 @@ const Navigation = () => {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
-              src="/images/rpmg-logo.png"
+              src="/images/rpmg-logo-removebg-preview.png"
               alt="BRAMG Logo"
               width={120}
               height={67}
-              className="h-8 w-auto"
+              className="h-18 w-auto"
               priority
             />
           </Link>
@@ -123,7 +156,7 @@ const Navigation = () => {
       <div
         className={cn(
           "hidden lg:block border-t border-white/20 transition-all duration-500 ease-in-out overflow-hidden",
-          showTrustBanner ? "max-h-20 opacity-100" : "max-h-0 opacity-0"
+          isBannerVisible ? "max-h-20 opacity-100" : "max-h-0 opacity-0"
         )}
       >
         <div className="container py-2">
