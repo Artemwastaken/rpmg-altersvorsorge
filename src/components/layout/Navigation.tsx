@@ -3,16 +3,19 @@
 import React, { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 import { Menu, X, ChevronRight } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { cn } from '@/utils/cn'
 
 const Navigation = () => {
+  const pathname = usePathname()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [hasScrolledPastThreshold, setHasScrolledPastThreshold] = useState(false)
   const [isBannerVisible, setIsBannerVisible] = useState(false)
   const scrollTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const isHomePage = pathname === '/'
 
   useEffect(() => {
     function handleScroll() {
@@ -67,6 +70,14 @@ const Navigation = () => {
 
   const handleSmoothScroll = (sectionId: string) => {
     if (typeof window === 'undefined') return
+
+    // If we're not on the homepage, navigate to homepage with hash
+    if (!isHomePage) {
+      window.location.href = `/#${sectionId}`
+      return
+    }
+
+    // If we're on homepage, use smooth scroll
     const target = document.getElementById(sectionId)
     if (target) {
       target.scrollIntoView({ behavior: 'smooth', block: 'start' })
