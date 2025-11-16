@@ -197,27 +197,27 @@ const HeroOutcomeCard = () => {
           {/* 3-Column Breakdown: Einzahlungen | Gewinn | Endkapital */}
           <div className="w-full max-w-3xl">
             <div className="overflow-hidden">
-              <div className="grid md:grid-cols-3 divide-x divide-primary-100">
+              <div className="grid grid-cols-3 divide-x divide-primary-100">
 
                 {/* Column 1: Einzahlungen */}
-                <div className="p-4 md:p-5 text-center">
-                  <p className="text-[10px] uppercase tracking-wider text-primary-600 mb-1.5">Einzahlungen</p>
-                  <p className="text-lg md:text-xl font-bold text-primary-900 mb-1">900.000 €</p>
-                  <p className="text-[11px] text-primary-700">3.000 € × 25 Jahre</p>
+                <div className="p-2 md:p-5 text-center">
+                  <p className="text-[9px] md:text-[10px] uppercase tracking-wider text-primary-600 mb-1 md:mb-1.5">Einzahlungen</p>
+                  <p className="text-sm md:text-xl font-bold text-primary-900 mb-0.5 md:mb-1">900.000 €</p>
+                  <p className="text-[9px] md:text-[11px] text-primary-700">3.000 € × 25 Jahre</p>
                 </div>
 
                 {/* Column 2: Gewinn (Subtle Emphasis) */}
-                <div className="p-4 md:p-5 text-center">
-                  <p className="text-[10px] uppercase tracking-wider text-primary-600 mb-1.5">Gewinn</p>
-                  <p className="text-lg md:text-xl font-bold text-emerald-700 mb-1">{formatGewinn}</p>
-                  <p className="text-[11px] text-primary-700">Zinseszinseffekt</p>
+                <div className="p-2 md:p-5 text-center">
+                  <p className="text-[9px] md:text-[10px] uppercase tracking-wider text-primary-600 mb-1 md:mb-1.5">Gewinn</p>
+                  <p className="text-sm md:text-xl font-bold text-emerald-700 mb-0.5 md:mb-1">{formatGewinn}</p>
+                  <p className="text-[9px] md:text-[11px] text-primary-700">Zinseszins</p>
                 </div>
 
                 {/* Column 3: Endkapital */}
-                <div className="p-4 md:p-5 text-center">
-                  <p className="text-[10px] uppercase tracking-wider text-primary-600 mb-1.5">Endkapital</p>
-                  <p className="text-lg md:text-xl font-bold text-primary-900 mb-1">≈ {format7}</p>
-                  <p className="text-[11px] text-primary-700">Einzahlungen + Gewinn</p>
+                <div className="p-2 md:p-5 text-center">
+                  <p className="text-[9px] md:text-[10px] uppercase tracking-wider text-primary-600 mb-1 md:mb-1.5">Endkapital</p>
+                  <p className="text-sm md:text-xl font-bold text-primary-900 mb-0.5 md:mb-1">≈ {format7}</p>
+                  <p className="text-[9px] md:text-[11px] text-primary-700 leading-tight">Einzahl. + Gewinn</p>
                 </div>
 
               </div>

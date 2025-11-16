@@ -31,22 +31,22 @@ const Footer = () => {
           </div>
 
           {/* Column 2: Contact Info */}
-          <div className="flex items-center gap-4 justify-end text-sm">
+          <div className="flex flex-col md:flex-row items-start md:items-center gap-3 md:gap-4 md:justify-end text-sm">
             <div className="flex items-center gap-2 whitespace-nowrap">
-              <Phone className="w-4 h-4 text-primary-500" />
+              <Phone className="w-4 h-4 text-primary-500 flex-shrink-0" />
               <a href="tel:+49221924280030" className="hover:text-white transition-colors">
                 +49 (0) 221 / 92 42 80 30
               </a>
             </div>
             <div className="flex items-center gap-2 whitespace-nowrap">
-              <Mail className="w-4 h-4 text-primary-500" />
+              <Mail className="w-4 h-4 text-primary-500 flex-shrink-0" />
               <a href="mailto:info@rpmg.de" className="hover:text-white transition-colors">
                 info@rpmg.de
               </a>
             </div>
-            <div className="flex items-center gap-2 whitespace-nowrap">
-              <MapPin className="w-4 h-4 text-primary-500" />
-              <span>
+            <div className="flex items-center gap-2">
+              <MapPin className="w-4 h-4 text-primary-500 flex-shrink-0" />
+              <span className="md:whitespace-nowrap">
                 Lindenstraße 14, 50674 Köln
               </span>
             </div>
