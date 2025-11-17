@@ -1,12 +1,12 @@
 'use client'
 
-import React, { useState } from 'react'
-import { motion } from 'framer-motion'
+import React, { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
 import Image from 'next/image'
-import { Send, Phone, Mail, MapPin, Check, Calendar, Clock, Video, ArrowLeft, Home } from 'lucide-react'
+import { Send, Phone, Mail, MapPin, Check, Calendar, Clock, Video } from 'lucide-react'
 import CustomSelect from '@/components/ui/CustomSelect'
 
 const formSchema = z.object({
@@ -24,7 +24,7 @@ const formSchema = z.object({
 type FormData = z.infer<typeof formSchema>
 
 const ConsultationForm = () => {
-  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [showToast, setShowToast] = useState(false)
   const [annualProfit, setAnnualProfit] = useState('')
 
   const {
@@ -36,6 +36,15 @@ const ConsultationForm = () => {
   } = useForm<FormData>({
     resolver: zodResolver(formSchema),
   })
+
+  useEffect(() => {
+    if (showToast) {
+      const timer = setTimeout(() => {
+        setShowToast(false)
+      }, 5000) // Toast disappears after 5 seconds
+      return () => clearTimeout(timer)
+    }
+  }, [showToast])
 
   const onSubmit = async (data: FormData) => {
     try {
@@ -61,7 +70,9 @@ const ConsultationForm = () => {
       const result = await response.json()
 
       if (result.success) {
-        setIsSubmitted(true)
+        setShowToast(true)
+        reset()
+        setAnnualProfit('')
       } else {
         throw new Error('Form submission failed')
       }
@@ -69,56 +80,6 @@ const ConsultationForm = () => {
       console.error('Error submitting form:', error)
       alert('Es gab einen Fehler beim Absenden des Formulars. Bitte versuchen Sie es erneut.')
     }
-  }
-
-  if (isSubmitted) {
-    return (
-      <section id="beratung" className="section-padding bg-primary-50">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            className="max-w-2xl mx-auto bg-white rounded-2xl p-12 shadow-xl text-center"
-          >
-            <div className="w-20 h-20 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6">
-              <Check className="w-10 h-10 text-primary-600" />
-            </div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Vielen Dank für Ihr Vertrauen!
-            </h2>
-            <p className="text-lg text-gray-600 mb-6">
-              Wir haben Ihre Anfrage erhalten und melden uns innerhalb von 24 Stunden bei Ihnen,
-              um einen Termin für Ihre kostenlose Erstberatung zu vereinbaren.
-            </p>
-            <p className="text-gray-500 mb-8">
-              Sie erhalten in Kürze eine Bestätigungs-E-Mail mit allen weiteren Informationen
-              und können sich schon jetzt auf konkrete Einsparpotenziale freuen.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
-                onClick={() => window.location.href = '/'}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors font-semibold"
-              >
-                <Home className="w-5 h-5" />
-                Zur Startseite
-              </button>
-              <button
-                onClick={() => {
-                  setIsSubmitted(false)
-                  reset()
-                  setAnnualProfit('')
-                }}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-primary-600 border-2 border-primary-600 rounded-lg hover:bg-primary-50 transition-colors font-semibold"
-              >
-                <ArrowLeft className="w-5 h-5" />
-                Weitere Anfrage senden
-              </button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-    )
   }
 
   return (
@@ -440,6 +401,44 @@ const ConsultationForm = () => {
           </motion.div>
         </div>
       </div>
+
+      {/* Success Toast Notification */}
+      <AnimatePresence>
+        {showToast && (
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 50 }}
+            transition={{ duration: 0.3 }}
+            className="fixed bottom-8 right-8 z-50 max-w-md"
+          >
+            <div className="bg-white rounded-xl shadow-2xl border-l-4 border-primary-600 p-6 flex items-start gap-4">
+              <div className="flex-shrink-0">
+                <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
+                  <Check className="w-6 h-6 text-primary-600" />
+                </div>
+              </div>
+              <div className="flex-1">
+                <h3 className="text-lg font-semibold text-gray-900 mb-1">
+                  Anfrage erfolgreich gesendet!
+                </h3>
+                <p className="text-sm text-gray-600">
+                  Wir melden uns innerhalb von 24 Stunden bei Ihnen.
+                </p>
+              </div>
+              <button
+                onClick={() => setShowToast(false)}
+                className="flex-shrink-0 text-gray-400 hover:text-gray-600 transition-colors"
+                aria-label="Schließen"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   )
 }
