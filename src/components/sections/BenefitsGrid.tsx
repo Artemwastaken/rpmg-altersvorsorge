@@ -78,9 +78,9 @@ const BenefitsGrid = () => {
               key={index}
               variants={{ hidden: { opacity: 0, y: 28 }, visible: { opacity: 1, y: 0 } }}
             >
-              <div className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 h-full border border-gray-100 hover:border-primary-200">
+              <div className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 h-full border border-gray-100 hover:border-primary-200 text-center">
                 {/* Icon */}
-                <div className="w-14 h-14 bg-primary-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary-600 transition-colors duration-300">
+                <div className="w-14 h-14 bg-primary-100 rounded-lg flex items-center justify-center mb-4 mx-auto group-hover:bg-primary-600 transition-colors duration-300">
                   <benefit.icon className="w-7 h-7 text-primary-600 group-hover:text-white transition-colors duration-300" />
                 </div>
 
@@ -93,7 +93,7 @@ const BenefitsGrid = () => {
                 </p>
 
                 {/* Highlight Badges */}
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 justify-center">
                   {benefit.highlights.map((highlight, idx) => (
                     <div key={idx} className="inline-flex items-center gap-2 px-3 py-1 bg-primary-50 rounded-full">
                       <div className="w-2 h-2 bg-primary-600 rounded-full animate-pulse" />

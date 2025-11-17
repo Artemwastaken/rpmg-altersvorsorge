@@ -2,7 +2,7 @@
 
 import React, { useMemo, useState, useEffect } from 'react'
 import { motion, useMotionValue, useTransform, animate } from 'framer-motion'
-import { Calculator, TrendingUp, PiggyBank, Briefcase, Info, ChevronRight } from 'lucide-react'
+import { Calculator, TrendingUp, PiggyBank, Briefcase, Info, ChevronRight, Percent, Euro } from 'lucide-react'
 import { cn } from '@/utils/cn'
 
 const SavingsCalculator = () => {
@@ -73,8 +73,8 @@ const SavingsCalculator = () => {
   }
 
   const tickMarks = [
-    { value: 339, label: '339 €', description: 'SV-frei', accent: true },
-    { value: 678, label: '678 €', description: 'Max. steuerfrei', accent: true }
+    { value: 339, label: '339 €', description: '4% BBG', accent: true },
+    { value: 678, label: '678 €', description: '8% BBG', accent: true }
   ]
 
   const yearTickMarks = [
@@ -335,7 +335,7 @@ const SavingsCalculator = () => {
                   >
                     <div className="flex items-center gap-3 mb-3">
                       <div className="w-12 h-12 rounded-full bg-white/15 flex items-center justify-center">
-                        <TrendingUp className="w-6 h-6" />
+                        <Percent className="w-6 h-6" />
                       </div>
                       <div>
                         <p className="text-xs uppercase tracking-wider text-white/70">Zinsertrag</p>
@@ -357,7 +357,7 @@ const SavingsCalculator = () => {
                   >
                     <div className="flex items-center gap-3 mb-3">
                       <div className="w-12 h-12 rounded-full bg-white/15 flex items-center justify-center">
-                        <TrendingUp className="w-6 h-6" />
+                        <Euro className="w-6 h-6" />
                       </div>
                       <div>
                         <p className="text-xs uppercase tracking-wider text-white/70">Endkapital</p>

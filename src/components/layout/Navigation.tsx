@@ -100,11 +100,11 @@ const Navigation = () => {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
-              src="/images/rpmg-logo-removebg-preview.png"
-              alt="BRAMG Logo"
-              width={120}
-              height={67}
-              className="h-18 w-auto"
+              src="/images/rpmg-logo-cropped.png"
+              alt="RPMG Logo"
+              width={132}
+              height={74}
+              className="h-20 w-auto"
               priority
             />
           </Link>

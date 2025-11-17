@@ -21,11 +21,11 @@ const Footer = () => {
           <div>
             <Link href="/" className="inline-flex items-center">
               <Image
-                src="/images/rpmg-logo-removebg-preview.png"
+                src="/images/rpmg-logo-cropped.png"
                 alt="RPMG Logo"
-                width={120}
-                height={67}
-                className="h-28 w-auto brightness-0 invert"
+                width={104}
+                height={59}
+                className="h-24 w-auto brightness-0 invert"
               />
             </Link>
           </div>

@@ -37,9 +37,9 @@ const ConsultationForm = () => {
   })
 
   const onSubmit = async (data: FormData) => {
-    // Simulate form submission
+    // TODO: Implement backend integration
+    // Currently simulating form submission - backend pending
     await new Promise((resolve) => setTimeout(resolve, 2000))
-    console.log(data)
     setIsSubmitted(true)
   }
 

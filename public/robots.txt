@@ -1,0 +1,12 @@
+# Robots.txt for RPMG Investment Altersvorsorge
+# Allow all search engines to crawl the site
+
+User-agent: *
+Allow: /
+
+# Disallow crawling of sensitive or internal paths (if any)
+# Disallow: /api/
+# Disallow: /admin/
+
+# Sitemap location
+Sitemap: https://bramg-altersvorsorge.vercel.app/sitemap.xml

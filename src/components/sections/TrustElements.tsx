@@ -8,21 +8,21 @@ import { Star, Users, Award, Building2, Quote } from 'lucide-react'
 const TrustElements = () => {
   const testimonials = [
     {
-      name: 'Dr. Andreas Hoffmann',
-      role: 'Geschäftsführer, Engineering Solutions GmbH',
-      content: 'Robert Piccini und sein Team haben mir geholfen, jährlich über 40.000€ an Steuern zu sparen. Die persönliche Betreuung ist außergewöhnlich.',
+      name: 'Geschäftsführer',
+      role: 'Engineering-Unternehmen',
+      content: 'Das Team hat mir geholfen, jährlich erhebliche Steuerersparnisse zu realisieren. Die persönliche Betreuung und fachliche Expertise sind außergewöhnlich.',
       rating: 5,
     },
     {
-      name: 'Petra Zimmermann',
-      role: 'CEO, Digital Innovations AG',
-      content: 'Dank der Expertise von RPMG konnte ich in nur 2 Jahren mein Privatvermögen um über 180.000€ steigern - komplett steuerfrei.',
+      name: 'CEO',
+      role: 'IT-Dienstleistungsunternehmen',
+      content: 'Dank der professionellen Beratung konnte ich mein Privatvermögen über mehrere Jahre hinweg steueroptimiert aufbauen. Ein verlässlicher Partner für langfristige Vermögensplanung.',
       rating: 5,
     },
     {
-      name: 'Marcus Weber',
-      role: 'Geschäftsführer, Weber Consulting UG',
-      content: 'Marvin Gorkow hat mir die perfekte Strategie entwickelt. Transparenz, Flexibilität und Rendite - besser geht es nicht.',
+      name: 'Geschäftsführer',
+      role: 'Beratungsunternehmen',
+      content: 'Die entwickelte Strategie überzeugt durch Transparenz, Flexibilität und solide Renditeaussichten. Ich fühle mich gut aufgehoben.',
       rating: 5,
     },
   ]

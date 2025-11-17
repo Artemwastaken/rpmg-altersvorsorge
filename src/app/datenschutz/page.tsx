@@ -128,25 +128,13 @@ export default function Datenschutz() {
               </div>
             </section>
 
-            {/* Google Analytics */}
+            {/* Webanalyse */}
             <section>
-              <h2 className="text-2xl font-semibold text-primary-950 mb-4">Einsatz von Google Analytics zur Webanalyse</h2>
+              <h2 className="text-2xl font-semibold text-primary-950 mb-4">Einsatz von Vercel Analytics zur Webanalyse</h2>
               <div className="space-y-2 text-primary-800">
-                <p>Unser Internetauftritt nutzt Funktionen des Webanalysedienstes Google Analytics. Anbieter ist die Google Ireland Limited ("Google"), Gordon House, Barrow Street, Dublin 4, Irland.</p>
-                <p>Google Analytics verwendet Cookies, kleine Textdateien, die auf Ihrem Computer gespeichert werden und die eine Analyse Ihrer Nutzung unseres Internetauftritts ermöglichen. Die durch das Cookie gesammelten Informationen über Ihr Nutzerverhalten werden in der Regel an einen Server von Google in den USA übertragen und dort gespeichert. Die Speicherung von Google-Analytics-Cookies erfolgt nur nach einer entsprechenden Einwilligung von Ihnen auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO. Ihre Einwilligung ist jederzeit widerrufbar.</p>
-                <p>Wir haben in unserem Internetauftritt die Funktion IP-Anonymisierung aktiviert. Dadurch wird Ihre IP-Adresse von Google innerhalb von Mitgliedstaaten der Europäischen Union oder in anderen Vertragsstaaten des Abkommens über den Europäischen Wirtschaftsraum vor der Übermittlung in die USA gekürzt. Nur in Ausnahmefällen wird die volle IP-Adresse an einen Server von Google in den USA übertragen und dort gekürzt. In unserem Auftrag wird Google diese Informationen benutzen, um Ihre Nutzung unseres Internetauftritts auszuwerten, um Reports über die Websiteaktivitäten zusammenzustellen und um weitere mit der Websitenutzung und der Internetnutzung verbundene Dienstleistungen gegenüber uns zu erbringen. Die im Rahmen von Google Analytics von Ihrem Browser übermittelte IP-Adresse wird nicht mit anderen Daten von Google zusammengeführt.</p>
-                <p>Sie können die Speicherung der Cookies durch eine entsprechende Einstellung Ihrer Browsersoftware verhindern; wir weisen Sie jedoch darauf hin, dass Sie in diesem Fall gegebenenfalls nicht sämtliche Funktionen unseres Internetauftritts vollumfänglich nutzen können. Sie können darüber hinaus die Erfassung der durch das Cookie gesammelten und auf Ihre Nutzung unseres Internetauftritts bezogenen Daten (inkl. Ihrer IP-Adresse) an Google sowie die Verarbeitung dieser Daten durch Google verhindern, indem Sie das unter dem folgenden Link verfügbare Browser-Plugin herunterladen und installieren: <a href="https://tools.google.com/dlpage/gaoptout?hl=de" className="text-primary-500 hover:text-primary-950 hover:underline" target="_blank" rel="noopener noreferrer">https://tools.google.com/dlpage/gaoptout?hl=de</a>.</p>
-                <p>Mehr Informationen zum Umgang mit Nutzerdaten bei Google Analytics finden Sie in der Datenschutzerklärung von Google: <a href="https://support.google.com/analytics/answer/6004245?hl=de" className="text-primary-500 hover:text-primary-950 hover:underline" target="_blank" rel="noopener noreferrer">https://support.google.com/analytics/answer/6004245?hl=de</a>.</p>
-                <p>Wir haben mit Google einen Vertrag zur Auftragsdatenverarbeitung abgeschlossen und setzen die strengen Vorgaben der deutschen Datenschutzbehörden bei der Nutzung von Google Analytics vollständig um.</p>
-                <p>Bei Google gespeicherte Daten auf Nutzer- und Ereignisebene, die mit Cookies, Nutzerkennungen (z.B. User ID) oder Werbe-IDs (z.B. DoubleClick-Cookies, Android-Werbe-ID) verknüpft sind, werden nach 26 Monaten anonymisiert bzw. gelöscht. Details hierzu finden Sie unter folgendem Link: <a href="https://support.google.com/analytics/answer/7667196?hl=de" className="text-primary-500 hover:text-primary-950 hover:underline" target="_blank" rel="noopener noreferrer">https://support.google.com/analytics/answer/7667196?hl=de</a></p>
-              </div>
-            </section>
-
-            {/* Google Maps */}
-            <section>
-              <h2 className="text-2xl font-semibold text-primary-950 mb-4">Einsatz von Google Maps</h2>
-              <div className="space-y-2 text-primary-800">
-                <p>Unser Internetauftritt nutzt über eine API den Kartendienst Google Maps. Anbieter ist die Google Ireland Limited ("Google"), Gordon House, Barrow Street, Dublin 4, Irland. Zur Nutzung der Funktionen von Google Maps ist es notwendig, Ihre IP-Adresse zu speichern. Diese Informationen werden in der Regel an einen Server von Google in den USA übertragen und dort gespeichert. Wir haben keinen Einfluss auf diese Datenübertragung. Die Nutzung von Google Maps erfolgt im Interesse einer ansprechenden Darstellung unseres Internetauftritts und an einer leichten Auffindbarkeit der von uns auf diesem Internetauftritt angegebenen Orte. Dies stellt ein berechtigtes Interesse im Sinne von Art. 6 Abs. 1 lit. f DSGVO dar. Mehr Informationen zum Umgang mit Nutzerdaten finden Sie in der Datenschutzerklärung von Google: <a href="https://www.google.de/intl/de/policies/privacy/" className="text-primary-500 hover:text-primary-950 hover:underline" target="_blank" rel="noopener noreferrer">https://www.google.de/intl/de/policies/privacy/</a>.</p>
+                <p>Unser Internetauftritt nutzt Vercel Analytics zur Analyse der Webseitennutzung. Anbieter ist Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA.</p>
+                <p>Vercel Analytics sammelt anonymisierte Nutzungsdaten wie Seitenaufrufe, verwendete Browser und allgemeine geografische Informationen. Die Datenerhebung erfolgt datenschutzkonform und ohne Verwendung von Cookies oder Tracking-Skripten. Personenbezogene Daten werden nicht erfasst. Die Nutzung von Vercel Analytics erfolgt im Interesse der Optimierung unseres Internetauftritts und stellt ein berechtigtes Interesse im Sinne von Art. 6 Abs. 1 lit. f DSGVO dar.</p>
+                <p>Mehr Informationen zum Umgang mit Nutzerdaten bei Vercel Analytics finden Sie in der Datenschutzerklärung von Vercel: <a href="https://vercel.com/legal/privacy-policy" className="text-primary-500 hover:text-primary-950 hover:underline" target="_blank" rel="noopener noreferrer">https://vercel.com/legal/privacy-policy</a>.</p>
               </div>
             </section>
 
@@ -163,7 +151,7 @@ export default function Datenschutz() {
               <h2 className="text-2xl font-semibold text-primary-950 mb-4">Änderungsvorbehalt der Datenschutzerklärung</h2>
               <div className="space-y-2 text-primary-800">
                 <p>Wir behalten uns vor, die vorgenannten Hinweise zum Datenschutz jederzeit unter Beachtung der datenschutzrechtlichen Vorgaben zu ändern, um sie an die geänderte Rechtslage, oder bei Änderungen des Dienstes sowie der Datenverarbeitung anzupassen. Dies gilt jedoch nur im Hinblick auf die Erklärungen zur Datenverarbeitung. Sofern Einwilligungen für die Änderungen von Ihnen erforderlich sind oder Bestandteile der Datenschutzerklärung Regelungen des Vertragsverhältnisses mit Ihnen enthalten, erfolgen die Änderungen nur mit Ihrer Zustimmung.</p>
-                <p className="mt-4 font-semibold">Stand: 24.07.2020</p>
+                <p className="mt-4 font-semibold">Stand: 17.11.2025</p>
               </div>
             </section>
 

@@ -1,12 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '**',
-      },
-    ],
+    // All images are served locally from /public
+    // If you need to allow remote images, add specific domains here
+    remotePatterns: [],
   },
 }
 
