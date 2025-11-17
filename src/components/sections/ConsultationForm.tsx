@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
 import Image from 'next/image'
-import { Send, Phone, Mail, MapPin, Check, Calendar, Clock, Video } from 'lucide-react'
+import { Send, Phone, Mail, MapPin, Check, Calendar, Clock, Video, ArrowLeft, Home } from 'lucide-react'
 import CustomSelect from '@/components/ui/CustomSelect'
 
 const formSchema = z.object({
@@ -31,16 +31,44 @@ const ConsultationForm = () => {
     register,
     handleSubmit,
     setValue,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm<FormData>({
     resolver: zodResolver(formSchema),
   })
 
   const onSubmit = async (data: FormData) => {
-    // TODO: Implement backend integration
-    // Currently simulating form submission - backend pending
-    await new Promise((resolve) => setTimeout(resolve, 2000))
-    setIsSubmitted(true)
+    try {
+      // Web3Forms Integration
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || 'YOUR_ACCESS_KEY_HERE',
+          name: data.name,
+          email: data.email,
+          phone: data.phone,
+          company: data.company,
+          annual_profit: data.annualProfit,
+          message: data.message || 'Keine Nachricht angegeben',
+          subject: 'Neue Beratungsanfrage von ' + data.name,
+        }),
+      })
+
+      const result = await response.json()
+
+      if (result.success) {
+        setIsSubmitted(true)
+      } else {
+        throw new Error('Form submission failed')
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      alert('Es gab einen Fehler beim Absenden des Formulars. Bitte versuchen Sie es erneut.')
+    }
   }
 
   if (isSubmitted) {
@@ -63,10 +91,30 @@ const ConsultationForm = () => {
               Wir haben Ihre Anfrage erhalten und melden uns innerhalb von 24 Stunden bei Ihnen,
               um einen Termin für Ihre kostenlose Erstberatung zu vereinbaren.
             </p>
-            <p className="text-gray-500">
+            <p className="text-gray-500 mb-8">
               Sie erhalten in Kürze eine Bestätigungs-E-Mail mit allen weiteren Informationen
               und können sich schon jetzt auf konkrete Einsparpotenziale freuen.
             </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button
+                onClick={() => window.location.href = '/'}
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors font-semibold"
+              >
+                <Home className="w-5 h-5" />
+                Zur Startseite
+              </button>
+              <button
+                onClick={() => {
+                  setIsSubmitted(false)
+                  reset()
+                  setAnnualProfit('')
+                }}
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-primary-600 border-2 border-primary-600 rounded-lg hover:bg-primary-50 transition-colors font-semibold"
+              >
+                <ArrowLeft className="w-5 h-5" />
+                Weitere Anfrage senden
+              </button>
+            </div>
           </motion.div>
         </div>
       </section>
