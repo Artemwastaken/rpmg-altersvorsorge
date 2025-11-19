@@ -8,9 +8,9 @@ import { Star, Users, Award, Building2, Quote } from 'lucide-react'
 const TrustElements = () => {
   const testimonials = [
     {
-      name: 'Geschäftsführer',
-      role: 'Engineering-Unternehmen',
-      content: 'Das Team hat mir geholfen, jährlich erhebliche Steuerersparnisse zu realisieren. Die persönliche Betreuung und fachliche Expertise sind außergewöhnlich.',
+      name: 'Lukas Gorin',
+      role: 'CEO eveCon GmbH',
+      content: 'Die Beratung ist verständlich, zuverlässig und das Handling der Unterlagen läuft angenehm schlank und digital. Eine professionelle Unterstützung für mich als Geschäftsführer.',
       rating: 5,
     },
     {
