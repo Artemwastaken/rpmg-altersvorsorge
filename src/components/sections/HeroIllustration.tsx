@@ -6,7 +6,7 @@ import Card1Vergleich from './HeroSavingsTowers'
 import Card2Vertrauen from './HeroTrustCard'
 import Card3Kapital from './HeroOutcomeCard'
 
-const ROTATION_INTERVAL = 5000
+const ROTATION_INTERVAL = 10000
 
 const HeroIllustration = () => {
   const [currentCard, setCurrentCard] = useState(0)

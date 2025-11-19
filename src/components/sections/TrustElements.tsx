@@ -127,7 +127,7 @@ const TrustElements = () => {
           className="bg-white rounded-2xl p-8 shadow-lg"
         >
           <h3 className="text-xl font-bold text-center text-gray-900 mb-8">
-            Unsere Partner und Auszeichnungen
+            Unsere Partner
           </h3>
 
           <motion.div
