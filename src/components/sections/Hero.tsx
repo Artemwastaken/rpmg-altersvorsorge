@@ -74,11 +74,6 @@ const Hero = () => {
               <p className="text-lg lg:text-xl text-primary-700 leading-relaxed">
                 Mit Ihrer GmbH Steuern sparen & Privatvermögen aufbauen
               </p>
-              <div className="flex items-center gap-2 text-base lg:text-lg text-primary-800">
-                <span>
-                  •<strong className="text-primary-600">steueroptimiert</strong> •<strong className="text-primary-600">rechtssicher</strong>
-                </span>
-              </div>
             </div>
           </div>
 
