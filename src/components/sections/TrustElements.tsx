@@ -14,14 +14,14 @@ const TrustElements = () => {
       rating: 5,
     },
     {
-      name: 'CEO Dr. Alexander Smeja',
-      role: 'SCD31 GmbH',
+      name: 'Dr. Alexander Smeja',
+      role: 'CEO, SCD31 GmbH',
       content: 'RPMG hat meine betriebliche Vorsorge perfekt strukturiert und an die Bedürfnisse meiner GmbH angepasst. Besonders hilfreich sind die unkomplizierte Betreuung und die klare Vertragsübersicht (auch über die App).',
       rating: 5,
     },
     {
-      name: 'CEO Michael Diste',
-      role: 'OBB GmbH',
+      name: 'Michael Diste',
+      role: 'CEO, OBB GmbH',
       content: 'Kompetente Beratung, klare Vorteile für mich als Geschäftsführer und eine Strategie, die wirklich in die Praxis passt. Ich fühle mich auch bezüglich meiner Mitarbeiter sehr gut beraten.',
       rating: 5,
     },
