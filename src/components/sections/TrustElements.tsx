@@ -14,15 +14,15 @@ const TrustElements = () => {
       rating: 5,
     },
     {
-      name: 'CEO',
-      role: 'IT-Dienstleistungsunternehmen',
-      content: 'Dank der professionellen Beratung konnte ich mein Privatvermögen über mehrere Jahre hinweg steueroptimiert aufbauen. Ein verlässlicher Partner für langfristige Vermögensplanung.',
+      name: 'CEO Dr. Alexander Smeja',
+      role: 'SCD31 GmbH',
+      content: 'RPMG hat meine betriebliche Vorsorge perfekt strukturiert und an die Bedürfnisse meiner GmbH angepasst. Besonders hilfreich sind die unkomplizierte Betreuung und die klare Vertragsübersicht (auch über die App).',
       rating: 5,
     },
     {
-      name: 'Geschäftsführer',
-      role: 'Beratungsunternehmen',
-      content: 'Die entwickelte Strategie überzeugt durch Transparenz, Flexibilität und solide Renditeaussichten. Ich fühle mich gut aufgehoben.',
+      name: 'CEO Michael Diste',
+      role: 'OBB GmbH',
+      content: 'Kompetente Beratung, klare Vorteile für mich als Geschäftsführer und eine Strategie, die wirklich in die Praxis passt. Ich fühle mich auch bezüglich meiner Mitarbeiter sehr gut beraten.',
       rating: 5,
     },
   ]
