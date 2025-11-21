@@ -135,12 +135,6 @@ const ComparisonTable = () => {
               ))}
             </div>
 
-            {/* Table Footer */}
-            <div className="bg-gradient-to-r from-primary-600 to-primary-700 p-4 md:p-6 text-white">
-              <p className="text-center font-semibold text-xs md:text-base leading-tight">
-                ✓ Beide Wege kombinierbar für eine Steuerersparnis bis zu 100.000 € pro Jahr
-              </p>
-            </div>
           </div>
         </motion.div>
 

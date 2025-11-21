@@ -26,7 +26,7 @@ const FAQ = () => {
     },
     {
       question: 'Wie lange dauert die Einrichtung?',
-      answer: '1–2 Wochen nach Erstberatung (reduziert von vormals 4–6 Wochen).',
+      answer: '1–2 Wochen nach Erstberatung.',
     },
     {
       question: 'Handelt es sich um eine Steuerberatung?',
