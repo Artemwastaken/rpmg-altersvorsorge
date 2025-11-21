@@ -4,6 +4,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight, Shield, Users, Star } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 import HeroIllustration from './HeroIllustration'
 
 const Hero = () => {
@@ -53,12 +54,9 @@ const Hero = () => {
           className="relative z-20 space-y-8 max-w-xl lg:-mt-[10%]"
         >
           <div className="space-y-3">
-            <div className="inline-flex items-center gap-3">
-              <Shield className="w-6 h-6 text-primary-500" />
-              <h2 className="text-2xl lg:text-3xl font-bold text-primary-800 tracking-wide">
-                RP&MG UNTERNEHMERPLAN
-              </h2>
-            </div>
+            <h2 className="text-2xl lg:text-3xl font-bold text-primary-800 tracking-wide">
+              RP&MG UNTERNEHMERPLAN
+            </h2>
             <div className="w-full h-px bg-gradient-to-r from-primary-300 via-primary-400 to-transparent" />
           </div>
 
